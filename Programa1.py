@@ -95,7 +95,6 @@ for i in range (0, len(equiposLista)):
     if (equipos.count(equiposLista[i]) == 5):
         equiposValidos.append(equiposLista[i])
 
-##---------------------    Preguntas      --------------------------------------##
     
 ##Crear matrices con los datos de los equipos validos solamente
   
@@ -118,45 +117,98 @@ for i in range(0, len(equiposValidos)):
     for j in range (0,len(hoja2)):
         if equiposValidos[i] == hoja2[j][0]:
             #print(hoja1[j])
-            hoja1Validos.append([])
-            hoja1Validos[i] = (hoja2[j])
+            hoja2Validos.append([])
+            hoja2Validos[i] = (hoja2[j])
 hoja2Validos.sort() 
 
 for i in range(0, len(equiposValidos)):
     for j in range (0,len(hoja3)):
         if equiposValidos[i] == hoja3[j][0]:
             #print(hoja1[j])
-            hoja1Validos.append([])
-            hoja1Validos[i] = (hoja3[j])
+            hoja3Validos.append([])
+            hoja3Validos[i] = (hoja3[j])
 hoja3Validos.sort() 
 
 for i in range(0, len(equiposValidos)):
     for j in range (0,len(hoja4)):
         if equiposValidos[i] == hoja4[j][0]:
             #print(hoja1[j])
-            hoja1Validos.append([])
-            hoja1Validos[i] = (hoja4[j])
+            hoja4Validos.append([])
+            hoja4Validos[i] = (hoja4[j])
 hoja4Validos.sort() 
 
 for i in range(0, len(equiposValidos)):
     for j in range (0,len(hoja5)):
         if equiposValidos[i] == hoja5[j][0]:
             #print(hoja1[j])
-            hoja1Validos.append([])
-            hoja1Validos[i] = (hoja5[j])
+            hoja5Validos.append([])
+            hoja5Validos[i] = (hoja5[j])
 hoja5Validos.sort()        
 
+
+
+##---------------------    Preguntas      --------------------------------------##
+
 preguntas = []
+
 #Crea una matriz para los resultados
 for i in range(0, len(equiposValidos)):
     preguntas.append([])
     preguntas[i] = [equiposValidos[i]]
     for j in range(0,7):
         preguntas[i].append(0)
-
-
-#print(preguntas)
-
+        
+## Calcula la primera pregunta
+for i in range(0, len(preguntas)):
+    preguntas[i][1] += hoja1Validos[i][2] 
+    preguntas[i][1] += hoja2Validos[i][2] 
+    preguntas[i][1] += hoja3Validos[i][2] 
+    preguntas[i][1] += hoja4Validos[i][2] 
+    preguntas[i][1] += hoja5Validos[i][2] 
     
+    ## Calcula la segunda pregunta
+for i in range(0, len(preguntas)):
+    preguntas[i][2] += hoja1Validos[i][3] 
+    preguntas[i][2] += hoja2Validos[i][3] 
+    preguntas[i][2] += hoja3Validos[i][3] 
+    preguntas[i][2] += hoja4Validos[i][3] 
+    preguntas[i][2] += hoja5Validos[i][3] 
+    
+        ## Calcula la tercera pregunta
+for i in range(0, len(preguntas)):
+    preguntas[i][3] += hoja1Validos[i][4] 
+    preguntas[i][3] += hoja2Validos[i][4] 
+    preguntas[i][3] += hoja3Validos[i][4] 
+    preguntas[i][3] += hoja4Validos[i][4] 
+    preguntas[i][3] += hoja5Validos[i][4] 
+    
+        ## Calcula la cuarta pregunta
+for i in range(0, len(preguntas)):
+    preguntas[i][4] += hoja1Validos[i][5] 
+    preguntas[i][4] += hoja2Validos[i][5] 
+    preguntas[i][4] += hoja3Validos[i][5] 
+    preguntas[i][4] += hoja4Validos[i][5] 
+    preguntas[i][4] += hoja5Validos[i][5] 
+
+        ## Calcula la quinta pregunta
+for i in range(0, len(preguntas)):
+    preguntas[i][5] += hoja1Validos[i][6] 
+    preguntas[i][5] += hoja2Validos[i][6] 
+    preguntas[i][5] += hoja3Validos[i][6] 
+    preguntas[i][5] += hoja4Validos[i][6] 
+    preguntas[i][5] += hoja5Validos[i][6] 
+    
+
+        ## Calcula la sexta pregunta
+for i in range(0, len(preguntas)):
+    preguntas[i][6] += hoja1Validos[i][8] 
+    preguntas[i][6] += hoja2Validos[i][8] 
+    preguntas[i][6] += hoja3Validos[i][8] 
+    preguntas[i][6] += hoja4Validos[i][8] 
+    preguntas[i][6] += hoja5Validos[i][8] 
+    
+
+print(preguntas)
+
     
     
