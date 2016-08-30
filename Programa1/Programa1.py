@@ -223,7 +223,7 @@ maximoVic = max(listaVictorias)
 
 for i in range (0, len(listaVictorias)):
     if (listaVictorias[i] == maximoVic):
-        maximosVictorias += " " + preguntas[i][0] 
+        maximosVictorias += " / "  + preguntas[i][0] 
 
 ##Calcula el mayor para la pregunta 2   
 #guardar la lista de los valores
@@ -236,7 +236,7 @@ maximoEmpates = max(listaEmpates)
 
 for i in range (0, len(listaEmpates)):
     if (listaEmpates[i] == maximoEmpates):
-        maximosEmpatadores += " " + preguntas[i][0] 
+        maximosEmpatadores += " / "  + preguntas[i][0] 
 
 ##Calcula el mayor para la pregunta 3
 #guardar la lista de los valores
@@ -249,7 +249,7 @@ maximoDerr = max(listaDerrotas)
 
 for i in range (0, len(listaDerrotas)):
     if (listaDerrotas[i] == maximoDerr):
-        maximosDerrotas += " " + preguntas[i][0]
+        maximosDerrotas += " / " + preguntas[i][0]
         
 ##Calcula el mayor para la pregunta 4
 #guardar la lista de los valores
@@ -262,7 +262,7 @@ maximoGF = max(listaGolesFavor)
 
 for i in range (0, len(listaGolesFavor)):
     if (listaGolesFavor[i] == maximoGF):
-        maximosGolesFavor += " " + preguntas[i][0]
+        maximosGolesFavor += " / "  + preguntas[i][0]
         
 ##Calcula el mayor para la pregunta 5
 #guardar la lista de los valores
@@ -275,7 +275,7 @@ menosGE = min(listaGolesContra)
 
 for i in range (0, len(listaGolesContra)):
     if (listaGolesContra[i] == menosGE):
-        menosGolesContra += " " + preguntas[i][0]
+        menosGolesContra += " / " + preguntas[i][0]
         
 ##Calcula el mayor para la pregunta 6
 #guardar la lista de los valores
@@ -288,7 +288,7 @@ maximoPuntos = max(listaPuntos)
 
 for i in range (0, len(listaPuntos)):
     if (listaPuntos[i] == maximoPuntos):
-        maximosPuntos += " " + preguntas[i][0]
+        maximosPuntos += " / " + preguntas[i][0]
 
         
 
