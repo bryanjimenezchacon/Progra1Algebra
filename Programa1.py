@@ -61,7 +61,7 @@ for row in ws5.rows:
         hoja5[i].append(cell.value)     
         j += 1
     i += 1
-##---------------------             --------------------------------------##
+##---------------------    Filtrado de equipos posibles         --------------------------------------##
     
 equipos = [] #Todos los equipos de todas las tablas
 equiposLista = [] #Lsita de equipos que han participado
@@ -95,9 +95,68 @@ for i in range (0, len(equiposLista)):
     if (equipos.count(equiposLista[i]) == 5):
         equiposValidos.append(equiposLista[i])
 
-print(len(equiposLista))
-print(equiposValidos)
+##---------------------    Preguntas      --------------------------------------##
     
+##Crear matrices con los datos de los equipos validos solamente
+  
+hoja1Validos = []
+hoja2Validos = []
+hoja3Validos = []
+hoja4Validos = []
+hoja5Validos = []
+
+        
+for i in range(0, len(equiposValidos)):
+    for j in range (0,len(hoja1)):
+        if equiposValidos[i] == hoja1[j][0]:
+            #print(hoja1[j])
+            hoja1Validos.append([])
+            hoja1Validos[i] = (hoja1[j])
+hoja1Validos.sort() 
+
+for i in range(0, len(equiposValidos)):
+    for j in range (0,len(hoja2)):
+        if equiposValidos[i] == hoja2[j][0]:
+            #print(hoja1[j])
+            hoja1Validos.append([])
+            hoja1Validos[i] = (hoja2[j])
+hoja2Validos.sort() 
+
+for i in range(0, len(equiposValidos)):
+    for j in range (0,len(hoja3)):
+        if equiposValidos[i] == hoja3[j][0]:
+            #print(hoja1[j])
+            hoja1Validos.append([])
+            hoja1Validos[i] = (hoja3[j])
+hoja3Validos.sort() 
+
+for i in range(0, len(equiposValidos)):
+    for j in range (0,len(hoja4)):
+        if equiposValidos[i] == hoja4[j][0]:
+            #print(hoja1[j])
+            hoja1Validos.append([])
+            hoja1Validos[i] = (hoja4[j])
+hoja4Validos.sort() 
+
+for i in range(0, len(equiposValidos)):
+    for j in range (0,len(hoja5)):
+        if equiposValidos[i] == hoja5[j][0]:
+            #print(hoja1[j])
+            hoja1Validos.append([])
+            hoja1Validos[i] = (hoja5[j])
+hoja5Validos.sort()        
+
+preguntas = []
+#Crea una matriz para los resultados
+for i in range(0, len(equiposValidos)):
+    preguntas.append([])
+    preguntas[i] = [equiposValidos[i]]
+    for j in range(0,7):
+        preguntas[i].append(0)
+
+
+#print(preguntas)
+
     
     
     
