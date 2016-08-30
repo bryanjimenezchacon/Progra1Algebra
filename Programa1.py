@@ -207,8 +207,115 @@ for i in range(0, len(preguntas)):
     preguntas[i][6] += hoja4Validos[i][8] 
     preguntas[i][6] += hoja5Validos[i][8] 
     
+    ##FALTA LA SEPTIMA PREGUNTA, PREGUNTAR AL PROFE QUE ES EXACTAMENTE
 
-print(preguntas)
 
+
+
+##Calcula el mayor para la pregunta 1    
+#guardar la lista de los valores
+listaVictorias = []
+maximosVictorias=""
+for i in range(0, len(preguntas)):
+    listaVictorias.append(preguntas[i][1])
     
+maximoVic = max(listaVictorias)
+
+for i in range (0, len(listaVictorias)):
+    if (listaVictorias[i] == maximoVic):
+        maximosVictorias += " " + preguntas[i][0] 
+
+##Calcula el mayor para la pregunta 2   
+#guardar la lista de los valores
+listaEmpates = []
+maximosEmpatadores=""
+for i in range(0, len(preguntas)):
+    listaEmpates.append(preguntas[i][2])
+    
+maximoEmpates = max(listaEmpates)
+
+for i in range (0, len(listaEmpates)):
+    if (listaEmpates[i] == maximoEmpates):
+        maximosEmpatadores += " " + preguntas[i][0] 
+
+##Calcula el mayor para la pregunta 3
+#guardar la lista de los valores
+listaDerrotas = []
+maximosDerrotas=""
+for i in range(0, len(preguntas)):
+    listaDerrotas.append(preguntas[i][3])
+    
+maximoDerr = max(listaDerrotas)
+
+for i in range (0, len(listaDerrotas)):
+    if (listaDerrotas[i] == maximoDerr):
+        maximosDerrotas += " " + preguntas[i][0]
+        
+##Calcula el mayor para la pregunta 4
+#guardar la lista de los valores
+listaGolesFavor = []
+maximosGolesFavor=""
+for i in range(0, len(preguntas)):
+    listaGolesFavor.append(preguntas[i][4])
+    
+maximoGF = max(listaGolesFavor)
+
+for i in range (0, len(listaGolesFavor)):
+    if (listaGolesFavor[i] == maximoGF):
+        maximosGolesFavor += " " + preguntas[i][0]
+        
+##Calcula el mayor para la pregunta 5
+#guardar la lista de los valores
+listaGolesContra = []
+menosGolesContra=""
+for i in range(0, len(preguntas)):
+    listaGolesContra.append(preguntas[i][5])
+    
+menosGE = min(listaGolesContra)
+
+for i in range (0, len(listaGolesContra)):
+    if (listaGolesContra[i] == menosGE):
+        menosGolesContra += " " + preguntas[i][0]
+        
+##Calcula el mayor para la pregunta 6
+#guardar la lista de los valores
+listaPuntos = []
+maximosPuntos=""
+for i in range(0, len(preguntas)):
+    listaPuntos.append(preguntas[i][6])
+    
+maximoPuntos = max(listaPuntos)
+
+for i in range (0, len(listaPuntos)):
+    if (listaPuntos[i] == maximoPuntos):
+        maximosPuntos += " " + preguntas[i][0]
+
+        
+
+### ------------------------ ESCRIBE EL EXCEL ------------------------###
+#Libro
+wbFinal = Workbook()
+#Worksheet
+wsFinal = wbFinal.active
+
+# Primera Fila
+wsFinal.append(["Equipos", "Victorias", "Empates", "Derrotas", "GF", "GE", "PTS", "Pregunta7"])
+
+#Matriz de resultados
+for i in range(0, len(preguntas)):
+    wsFinal.append(preguntas[i])
+wsFinal.append(["", "", ""])
+wsFinal.append(["Categoria", "Equipos", "Total"])
+#                         Categoria/Nombres Equipos/ Total
+wsFinal.append(["Mas Victorias:", maximosVictorias, maximoVic])
+wsFinal.append(["Mas Empates:", maximosEmpatadores, maximoEmpates])
+wsFinal.append(["Mas Derrotas:", maximosDerrotas, maximoDerr])
+wsFinal.append(["Mas GF:", maximosGolesFavor, maximoGF])
+wsFinal.append(["Menos GE:", menosGolesContra, menosGE])
+wsFinal.append(["Mas Puntos:", maximosPuntos, maximoPuntos])
+wsFinal.append(["Mas dif Puntos:", maximosEmpatadores, maximoEmpates])
+
+# Guarda el archivo
+wbFinal.save("Resultado.xlsx")
+
     
