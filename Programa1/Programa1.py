@@ -7,7 +7,6 @@ Created on Tue Aug 30 09:53:25 2016
 
 from openpyxl import *
 
-
 wb = load_workbook(filename='Tabla.xlsx', read_only=True)
 ws1 = wb['2011-2012'] # Nombre de la hoja del excel
 ws2 = wb['2012-2013'] # Nombre de la hoja del excel
