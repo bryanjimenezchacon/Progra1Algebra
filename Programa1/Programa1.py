@@ -206,9 +206,26 @@ for i in range(0, len(preguntas)):
     preguntas[i][6] += hoja4Validos[i][8] 
     preguntas[i][6] += hoja5Validos[i][8] 
     
-    ##FALTA LA SEPTIMA PREGUNTA, PREGUNTAR AL PROFE QUE ES EXACTAMENTE
-
-
+## Calcula la septima pregunta
+matrizDiferecias= []#Matriz con las diferencias temporada por temporada de cada equipos
+indicesMaximaDif =[]#Indica en que temporadas se dio O dieron las mayores diferencias   
+maximoValorTemp = 0
+for i in range(0,len(equiposValidos)):
+    listaDiferenciasEquipo = []
+    listaDiferenciasEquipo.append(abs(hoja1Validos[i][8] - hoja2Validos[i][8]))
+    listaDiferenciasEquipo.append(abs(hoja2Validos[i][8] - hoja3Validos[i][8]))
+    listaDiferenciasEquipo.append(abs(hoja3Validos[i][8] - hoja4Validos[i][8]))
+    listaDiferenciasEquipo.append(abs(hoja4Validos[i][8] - hoja5Validos[i][8]))
+    matrizDiferecias.append(listaDiferenciasEquipo)
+    
+for i in range(0,len(preguntas)):
+    maximoValorTemp = max(matrizDiferecias[i])
+    preguntas[i][7] = maximoValorTemp 
+    listaTempoIndices = []
+    for j in range(0, len(matrizDiferecias[i])):
+        if maximoValorTemp == matrizDiferecias[i][j]:
+            listaTempoIndices.append(j)
+    indicesMaximaDif.append(listaTempoIndices)
 
 
 ##Calcula el mayor para la pregunta 1    
@@ -222,7 +239,7 @@ maximoVic = max(listaVictorias)
 
 for i in range (0, len(listaVictorias)):
     if (listaVictorias[i] == maximoVic):
-        maximosVictorias += " / "  + preguntas[i][0] 
+        maximosVictorias += " - "  + preguntas[i][0] 
 
 ##Calcula el mayor para la pregunta 2   
 #guardar la lista de los valores
@@ -235,7 +252,7 @@ maximoEmpates = max(listaEmpates)
 
 for i in range (0, len(listaEmpates)):
     if (listaEmpates[i] == maximoEmpates):
-        maximosEmpatadores += " / "  + preguntas[i][0] 
+        maximosEmpatadores += " - "  + preguntas[i][0] 
 
 ##Calcula el mayor para la pregunta 3
 #guardar la lista de los valores
@@ -248,7 +265,7 @@ maximoDerr = max(listaDerrotas)
 
 for i in range (0, len(listaDerrotas)):
     if (listaDerrotas[i] == maximoDerr):
-        maximosDerrotas += " / " + preguntas[i][0]
+        maximosDerrotas += " - " + preguntas[i][0]
         
 ##Calcula el mayor para la pregunta 4
 #guardar la lista de los valores
@@ -261,7 +278,7 @@ maximoGF = max(listaGolesFavor)
 
 for i in range (0, len(listaGolesFavor)):
     if (listaGolesFavor[i] == maximoGF):
-        maximosGolesFavor += " / "  + preguntas[i][0]
+        maximosGolesFavor += " - "  + preguntas[i][0]
         
 ##Calcula el mayor para la pregunta 5
 #guardar la lista de los valores
@@ -274,7 +291,7 @@ menosGE = min(listaGolesContra)
 
 for i in range (0, len(listaGolesContra)):
     if (listaGolesContra[i] == menosGE):
-        menosGolesContra += " / " + preguntas[i][0]
+        menosGolesContra += " - " + preguntas[i][0]
         
 ##Calcula el mayor para la pregunta 6
 #guardar la lista de los valores
@@ -287,10 +304,43 @@ maximoPuntos = max(listaPuntos)
 
 for i in range (0, len(listaPuntos)):
     if (listaPuntos[i] == maximoPuntos):
-        maximosPuntos += " / " + preguntas[i][0]
-
+        maximosPuntos += " - " + preguntas[i][0]
         
+##Calcula el mayor para la pregunta 7
+#guardar la lista de los valores
+listaDifPuntos = []
+maximosDifPuntos=""
+for i in range(0, len(preguntas)):
+    listaDifPuntos.append(preguntas[i][7])
+    
+maximoDifPuntos = max(listaDifPuntos)
 
+for i in range (0, len(listaDifPuntos)):
+    if (listaDifPuntos[i] == maximoDifPuntos):
+        maximosDifPuntos += " - " + preguntas[i][0]
+
+##Procedimiento para generar la matriz para ver la temporada de mayor diferencia por equipo
+matrizDatosTemporada = []
+
+for i in range(0, len(equiposValidos)):
+    filaTemp = []
+    filaTemp.append(equiposValidos[i])
+    filaTemp.append(preguntas[i][7])
+    for j in range(0, len (indicesMaximaDif[i])):
+        varTemporadaras = ""
+
+        if indicesMaximaDif[i][j] == 0:
+            varTemporadaras += " 2011 - 2012 a 2012 - 2013/ "       
+        if indicesMaximaDif[i][j] == 1:
+            varTemporadaras += " 2012 - 2013 a 2013 - 2014/ "
+        if indicesMaximaDif[i][j] == 2:
+            varTemporadaras += " 2013 - 2014 a 2014 - 2015/ "
+        if indicesMaximaDif[i][j] == 3:
+            varTemporadaras += " 2014 - 2015 a 2015 - 2016/ "
+        filaTemp.append(varTemporadaras)
+    
+    matrizDatosTemporada.append(filaTemp)
+    
 ### ------------------------ ESCRIBE EL EXCEL ------------------------###
 #Libro
 wbFinal = Workbook()
@@ -298,21 +348,29 @@ wbFinal = Workbook()
 wsFinal = wbFinal.active
 
 # Primera Fila
-wsFinal.append(["Equipos", "Victorias", "Empates", "Derrotas", "GF", "GE", "PTS", "Pregunta7"])
+wsFinal.append(["Equipos", "Victorias", "Empates", "Derrotas", "GF", "GE", "PTS", "Mayor dif. PTS"])
 
 #Matriz de resultados
 for i in range(0, len(preguntas)):
     wsFinal.append(preguntas[i])
 wsFinal.append(["", "", ""])
 wsFinal.append(["Categoria", "Equipos", "Total"])
-#                         Categoria/Nombres Equipos/ Total
+#                 Categoria/        Nombres Equipos   / Total
 wsFinal.append(["Mas Victorias:", maximosVictorias, maximoVic])
 wsFinal.append(["Mas Empates:", maximosEmpatadores, maximoEmpates])
 wsFinal.append(["Mas Derrotas:", maximosDerrotas, maximoDerr])
 wsFinal.append(["Mas GF:", maximosGolesFavor, maximoGF])
 wsFinal.append(["Menos GE:", menosGolesContra, menosGE])
 wsFinal.append(["Mas Puntos:", maximosPuntos, maximoPuntos])
-wsFinal.append(["Mas dif Puntos:", maximosEmpatadores, maximoEmpates])
+
+wsFinal.append(["Mas dif Puntos:", maximosDifPuntos, maximoDifPuntos])
+
+wsFinal.append(["", "", ""])
+wsFinal.append(["Mayor diferencia en temporada"])
+wsFinal.append(["Equipo", "Dif", "Temporada"])
+
+for i in range(0, len(equiposValidos)):
+    wsFinal.append(matrizDatosTemporada[i])
 
 # Guarda el archivo
 wbFinal.save("Resultado.xlsx")
