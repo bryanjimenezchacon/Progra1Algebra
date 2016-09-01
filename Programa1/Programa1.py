@@ -60,7 +60,7 @@ for row in ws5.rows:
         hoja5[i].append(cell.value)     
         j += 1
     i += 1
-##---------------------    Filtrado de equipos posibles         --------------------------------------##
+##------------------ Filtrado Equipos Posibles ------------------##
     
 equipos = [] #Todos los equipos de todas las tablas
 equiposLista = [] #Lsita de equipos que han participado
@@ -146,7 +146,7 @@ hoja5Validos.sort()
 
 
 
-##---------------------    Preguntas      --------------------------------------##
+##------------------ Resolucion de Preguntas ------------------##
 
 preguntas = []
 
@@ -165,7 +165,7 @@ for i in range(0, len(preguntas)):
     preguntas[i][1] += hoja4Validos[i][2] 
     preguntas[i][1] += hoja5Validos[i][2] 
     
-    ## Calcula la segunda pregunta
+## Calcula la segunda pregunta
 for i in range(0, len(preguntas)):
     preguntas[i][2] += hoja1Validos[i][3] 
     preguntas[i][2] += hoja2Validos[i][3] 
@@ -173,7 +173,7 @@ for i in range(0, len(preguntas)):
     preguntas[i][2] += hoja4Validos[i][3] 
     preguntas[i][2] += hoja5Validos[i][3] 
     
-        ## Calcula la tercera pregunta
+## Calcula la tercera pregunta
 for i in range(0, len(preguntas)):
     preguntas[i][3] += hoja1Validos[i][4] 
     preguntas[i][3] += hoja2Validos[i][4] 
@@ -181,7 +181,7 @@ for i in range(0, len(preguntas)):
     preguntas[i][3] += hoja4Validos[i][4] 
     preguntas[i][3] += hoja5Validos[i][4] 
     
-        ## Calcula la cuarta pregunta
+## Calcula la cuarta pregunta
 for i in range(0, len(preguntas)):
     preguntas[i][4] += hoja1Validos[i][5] 
     preguntas[i][4] += hoja2Validos[i][5] 
@@ -189,7 +189,7 @@ for i in range(0, len(preguntas)):
     preguntas[i][4] += hoja4Validos[i][5] 
     preguntas[i][4] += hoja5Validos[i][5] 
 
-        ## Calcula la quinta pregunta
+## Calcula la quinta pregunta
 for i in range(0, len(preguntas)):
     preguntas[i][5] += hoja1Validos[i][6] 
     preguntas[i][5] += hoja2Validos[i][6] 
@@ -197,8 +197,7 @@ for i in range(0, len(preguntas)):
     preguntas[i][5] += hoja4Validos[i][6] 
     preguntas[i][5] += hoja5Validos[i][6] 
     
-
-        ## Calcula la sexta pregunta
+## Calcula la sexta pregunta
 for i in range(0, len(preguntas)):
     preguntas[i][6] += hoja1Validos[i][8] 
     preguntas[i][6] += hoja2Validos[i][8] 
@@ -207,9 +206,11 @@ for i in range(0, len(preguntas)):
     preguntas[i][6] += hoja5Validos[i][8] 
     
 ## Calcula la septima pregunta
+    
 matrizDiferecias= []#Matriz con las diferencias temporada por temporada de cada equipos
 indicesMaximaDif =[]#Indica en que temporadas se dio O dieron las mayores diferencias   
 maximoValorTemp = 0
+
 for i in range(0,len(equiposValidos)):
     listaDiferenciasEquipo = []
     listaDiferenciasEquipo.append(abs(hoja1Validos[i][8] - hoja2Validos[i][8]))
@@ -356,14 +357,14 @@ for i in range(0, len(preguntas)):
 wsFinal.append(["", "", ""])
 wsFinal.append(["Categoria", "Equipos", "Total"])
 #                 Categoria/        Nombres Equipos   / Total
-wsFinal.append(["Mas Victorias:", maximosVictorias, maximoVic])
-wsFinal.append(["Mas Empates:", maximosEmpatadores, maximoEmpates])
-wsFinal.append(["Mas Derrotas:", maximosDerrotas, maximoDerr])
-wsFinal.append(["Mas GF:", maximosGolesFavor, maximoGF])
-wsFinal.append(["Menos GE:", menosGolesContra, menosGE])
-wsFinal.append(["Mas Puntos:", maximosPuntos, maximoPuntos])
+wsFinal.append(["Más Victorias:", maximosVictorias, maximoVic])
+wsFinal.append(["Más Empates:", maximosEmpatadores, maximoEmpates])
+wsFinal.append(["Más Derrotas:", maximosDerrotas, maximoDerr])
+wsFinal.append(["Más Goles a Favor:", maximosGolesFavor, maximoGF])
+wsFinal.append(["Menos Goles en Contra:", menosGolesContra, menosGE])
+wsFinal.append(["Mayor Puntuación:", maximosPuntos, maximoPuntos])
 
-wsFinal.append(["Mas dif Puntos:", maximosDifPuntos, maximoDifPuntos])
+wsFinal.append(["Mayor Diferencia de Puntos:", maximosDifPuntos, maximoDifPuntos])
 
 wsFinal.append(["", "", ""])
 wsFinal.append(["Mayor diferencia en temporada"])
