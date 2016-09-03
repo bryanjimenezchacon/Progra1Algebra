@@ -24,8 +24,36 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
+    <widget class="QWidget" name="tab">
+     <attribute name="title">
+      <string>About</string>
+     </attribute>
+     <widget class="QLabel" name="label_4">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>20</y>
+        <width>471</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>26</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Proyecto Algebra Lineal</string>
+      </property>
+      <property name="scaledContents">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </widget>
     <widget class="QWidget" name="TabP1">
      <attribute name="title">
       <string>Programa 1</string>
@@ -33,14 +61,155 @@
      <widget class="QPushButton" name="buttonSeleccionarExcel">
       <property name="geometry">
        <rect>
-        <x>280</x>
-        <y>60</y>
-        <width>141</width>
-        <height>23</height>
+        <x>310</x>
+        <y>400</y>
+        <width>191</width>
+        <height>121</height>
        </rect>
       </property>
       <property name="text">
        <string>Seleccionar excel</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label">
+      <property name="geometry">
+       <rect>
+        <x>280</x>
+        <y>0</y>
+        <width>241</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>26</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Programa 1</string>
+      </property>
+      <property name="scaledContents">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_5">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>130</y>
+        <width>261</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>El Programa lee y retorna un archivo de excel</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_6">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>80</y>
+        <width>121</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Importante</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_7">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>180</y>
+        <width>271</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>El Excel de entrada puede estar en cualquier ubicación</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_8">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>230</y>
+        <width>371</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>El Excel de salida (Resultado.xlsx) se guarda en la ubicación del programa</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_9">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>80</y>
+        <width>151</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Instrucciones</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_10">
+      <property name="geometry">
+       <rect>
+        <x>490</x>
+        <y>120</y>
+        <width>261</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>1. Seleccione el libro de Excel con los datos</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_11">
+      <property name="geometry">
+       <rect>
+        <x>420</x>
+        <y>160</y>
+        <width>351</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>(El Programa hará los calculos y genrará el resultado automaticamente)</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_12">
+      <property name="geometry">
+       <rect>
+        <x>470</x>
+        <y>210</y>
+        <width>261</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>2. Abra el Excel Resultado.xlsx, y observe los datos</string>
       </property>
      </widget>
     </widget>
@@ -48,17 +217,27 @@
      <attribute name="title">
       <string>Programa 2</string>
      </attribute>
-     <widget class="QPushButton" name="pushButton">
+     <widget class="QLabel" name="label_2">
       <property name="geometry">
        <rect>
-        <x>390</x>
-        <y>200</y>
-        <width>75</width>
-        <height>23</height>
+        <x>280</x>
+        <y>0</y>
+        <width>241</width>
+        <height>71</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <pointsize>26</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
       <property name="text">
-       <string>PushButton</string>
+       <string>Programa 2</string>
+      </property>
+      <property name="scaledContents">
+       <bool>false</bool>
       </property>
      </widget>
     </widget>
@@ -66,6 +245,29 @@
      <attribute name="title">
       <string>Programa 3</string>
      </attribute>
+     <widget class="QLabel" name="label_3">
+      <property name="geometry">
+       <rect>
+        <x>280</x>
+        <y>0</y>
+        <width>241</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>26</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Programa 3</string>
+      </property>
+      <property name="scaledContents">
+       <bool>false</bool>
+      </property>
+     </widget>
     </widget>
    </widget>
   </widget>
