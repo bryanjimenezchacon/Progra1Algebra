@@ -35,7 +35,7 @@ class Principal(QtGui.QMainWindow, form_class):
 
      
  def calCarreteras(self):#Para el programa 2
-     Programa2.analizarMatrices()
+     Programa2.analizarMatrices(self.spinBoxCantCarreteras.value(), self.tableWidgetRutas)
      
      
 class Programa1():
@@ -409,7 +409,7 @@ class Programa1():
         wsFinal.append(["Equipo", "Dif", "Temporada"])
 
         for i in range(0, len(equiposValidos)):
-            wsFinal.append(matrizDatosTemporada[i])
+            wsFinal.append(matrizDatosTemporada[i]) 
 
         # Guarda el archivo
         wbFinal.save("Resultado.xlsx")
@@ -429,22 +429,28 @@ class Programa2():
             cantCarreteras -= 1
         
         
-    def analizarMatrices():
-
-        #numeroCarreteras = int (input("Digite algo: ")) 
-        table = list(product([0, 1], repeat = 3))# 3 por ahora
-        
-        
-        
-        r1 = [22,32.3,4.5,15]
-        r2 = [62,53,7,122]
-        r3 = [73.8,68,8,143]
-        
+    def analizarMatrices(val,tableWidgetRutas):
+        cantFilas = val
         tablacondiciones = []
-        tablacondiciones.append(r1)
-        tablacondiciones.append(r2)
-        tablacondiciones.append(r3)
+        #numeroCarreteras = int (input("Digite algo: ")) 
+        table = list(product([0, 1], repeat = cantFilas))# 3 por ahora
         
+        for i in range(0, cantFilas):
+            filaTemp = []
+            filaTemp.append(float(tableWidgetRutas.item(i,1).text()))
+            filaTemp.append(float(tableWidgetRutas.item(i,2).text()))
+            filaTemp.append(float(tableWidgetRutas.item(i,3).text()))
+            filaTemp.append(float(tableWidgetRutas.item(i,4).text()))
+            tablacondiciones.append(filaTemp)
+        print(tablacondiciones)
+         
+ #       r1 = [22,32.3,4.5,15]
+  #      r2 = [62,53,7,122]
+   #     r3 = [73.8,68,8,143]
+    
+    #    tablacondiciones.append(r1)
+       # tablacondiciones.append(r2)
+      #  tablacondiciones.append(r3)  
         x = np.matrix(table)
         y = np.matrix(tablacondiciones)
         
