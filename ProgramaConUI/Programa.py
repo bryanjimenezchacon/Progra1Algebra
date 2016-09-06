@@ -21,7 +21,7 @@ class Principal(QtGui.QMainWindow, form_class):
   self.buttonSeleccionarExcel.clicked.connect(self.abrirExcel)
   self.buttonCalcularCarretera.clicked.connect(self.calCarreteras)
   
- def abrirExcel(self):
+ def abrirExcel(self):#Para el programa 1
     nombre_fichero = QtGui.QFileDialog.getOpenFileName(self, "Abrir Excel", ruta)
     if nombre_fichero:
         self.fichero_actual = nombre_fichero
@@ -29,7 +29,9 @@ class Principal(QtGui.QMainWindow, form_class):
         #self.ruta = QFileInfo(nombre_fichero).path()
         # TODO - Aqui va el codigo
         Programa1.procesar(nombre_fichero)
- def calCarreteras(self):
+        
+ def calCarreteras(self):#Para el programa 2
+     Programa2.generarInterfaz()
      Programa2.analizarMatrices()
      
 class Programa1():
@@ -411,6 +413,9 @@ class Programa1():
 class Programa2():
     def __init__(self):
         pass
+    def generarInterfaz():
+        pass
+        
     def analizarMatrices():
 
         #numeroCarreteras = int (input("Digite algo: ")) 

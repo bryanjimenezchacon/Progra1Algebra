@@ -253,6 +253,111 @@
        <string>Calcular</string>
       </property>
      </widget>
+     <widget class="QLabel" name="nombreCantidadCarreteras">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>90</y>
+        <width>351</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>1. Digite la Cantidad de Carreteras (1-8):</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBoxCantCarreteras">
+      <property name="geometry">
+       <rect>
+        <x>380</x>
+        <y>90</y>
+        <width>51</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="minimum">
+       <number>1</number>
+      </property>
+      <property name="maximum">
+       <number>8</number>
+      </property>
+     </widget>
+     <widget class="QTableWidget" name="tableWidgetRutas">
+      <property name="geometry">
+       <rect>
+        <x>35</x>
+        <y>160</y>
+        <width>1281</width>
+        <height>192</height>
+       </rect>
+      </property>
+      <column>
+       <property name="text">
+        <string>Ruta</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Longitud (Kms)</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Costo (Millones de dólares)</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Tiempo de Construccion (Meses)</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Población Beneficiada (Miles de personas)</string>
+       </property>
+      </column>
+     </widget>
+     <widget class="QLabel" name="nombreCantidadCarreteras_2">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>120</y>
+        <width>351</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>2. Introduzca los datos para cada ruta:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="nombreCantidadCarreteras_3">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>370</y>
+        <width>401</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>3. Introduzca los parámetros para las condiciones:</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="TapP3">
      <attribute name="title">
