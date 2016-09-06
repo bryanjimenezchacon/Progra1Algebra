@@ -240,6 +240,19 @@
        <bool>false</bool>
       </property>
      </widget>
+     <widget class="QPushButton" name="buttonCalcularCarretera">
+      <property name="geometry">
+       <rect>
+        <x>530</x>
+        <y>600</y>
+        <width>171</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Calcular</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="TapP3">
      <attribute name="title">
