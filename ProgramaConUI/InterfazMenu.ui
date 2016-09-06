@@ -272,12 +272,15 @@
       </property>
      </widget>
      <widget class="QSpinBox" name="spinBoxCantCarreteras">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
       <property name="geometry">
        <rect>
-        <x>380</x>
+        <x>400</x>
         <y>90</y>
         <width>51</width>
-        <height>31</height>
+        <height>41</height>
        </rect>
       </property>
       <property name="minimum">
@@ -290,9 +293,9 @@
      <widget class="QTableWidget" name="tableWidgetRutas">
       <property name="geometry">
        <rect>
-        <x>35</x>
-        <y>160</y>
-        <width>1281</width>
+        <x>240</x>
+        <y>170</y>
+        <width>631</width>
         <height>192</height>
        </rect>
       </property>
@@ -326,7 +329,7 @@
       <property name="geometry">
        <rect>
         <x>40</x>
-        <y>120</y>
+        <y>140</y>
         <width>351</width>
         <height>31</height>
        </rect>
@@ -356,6 +359,123 @@
       </property>
       <property name="text">
        <string>3. Introduzca los parámetros para las condiciones:</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="buttonAgregarCarreteras">
+      <property name="geometry">
+       <rect>
+        <x>490</x>
+        <y>90</y>
+        <width>171</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Agregar Carreteras</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_13">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>430</y>
+        <width>121</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Longitud Total</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_14">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>510</y>
+        <width>121</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Tiempo Total</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_15">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>480</y>
+        <width>121</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Costo Total</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_16">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>550</y>
+        <width>131</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Poblacion Beneficiada</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit">
+      <property name="geometry">
+       <rect>
+        <x>240</x>
+        <y>430</y>
+        <width>113</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_2">
+      <property name="geometry">
+       <rect>
+        <x>240</x>
+        <y>470</y>
+        <width>113</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_3">
+      <property name="geometry">
+       <rect>
+        <x>240</x>
+        <y>510</y>
+        <width>113</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_4">
+      <property name="geometry">
+       <rect>
+        <x>240</x>
+        <y>550</y>
+        <width>113</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
       </property>
      </widget>
     </widget>

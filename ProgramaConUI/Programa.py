@@ -20,7 +20,7 @@ class Principal(QtGui.QMainWindow, form_class):
   self.setupUi(self)
   self.buttonSeleccionarExcel.clicked.connect(self.abrirExcel)
   self.buttonCalcularCarretera.clicked.connect(self.calCarreteras)
-  
+  self.buttonAgregarCarreteras.clicked.connect(self.agregarCarreteras)
  def abrirExcel(self):#Para el programa 1
     nombre_fichero = QtGui.QFileDialog.getOpenFileName(self, "Abrir Excel", ruta)
     if nombre_fichero:
@@ -30,9 +30,13 @@ class Principal(QtGui.QMainWindow, form_class):
         # TODO - Aqui va el codigo
         Programa1.procesar(nombre_fichero)
         
+ def agregarCarreteras(self):#Para el programa 2
+     Programa2.generarInterfaz(self.spinBoxCantCarreteras.value(), self.tableWidgetRutas)
+
+     
  def calCarreteras(self):#Para el programa 2
-     Programa2.generarInterfaz(self.spinBoxCantCarreteras.value())
      Programa2.analizarMatrices()
+     
      
 class Programa1():
     def __init__(self):
@@ -413,9 +417,17 @@ class Programa1():
 class Programa2():
     def __init__(self):
         pass
-    def generarInterfaz(val):
+    
+    def generarInterfaz(val,tableWidgetRutas):##Fija la cantidad de filas segun la cantidad de carreteras
         cantCarreteras = val
-        print(cantCarreteras)
+        tableWidgetRutas.setRowCount( 0);
+        while cantCarreteras != 0:
+            rowPosition = tableWidgetRutas.rowCount()
+            tableWidgetRutas.insertRow(rowPosition)
+            print(rowPosition)
+            tableWidgetRutas.setItem(rowPosition,0, QtGui.QTableWidgetItem("R" + str(rowPosition + 1)))
+            cantCarreteras -= 1
+        
         
     def analizarMatrices():
 
