@@ -31,7 +31,7 @@ class Principal(QtGui.QMainWindow, form_class):
         Programa1.procesar(nombre_fichero)
         
  def calCarreteras(self):#Para el programa 2
-     Programa2.generarInterfaz()
+     Programa2.generarInterfaz(self.spinBoxCantCarreteras.value())
      Programa2.analizarMatrices()
      
 class Programa1():
@@ -413,8 +413,9 @@ class Programa1():
 class Programa2():
     def __init__(self):
         pass
-    def generarInterfaz():
-        pass
+    def generarInterfaz(val):
+        cantCarreteras = val
+        print(cantCarreteras)
         
     def analizarMatrices():
 
