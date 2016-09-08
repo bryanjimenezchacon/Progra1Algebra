@@ -26,14 +26,10 @@ class Principal(QtGui.QMainWindow, form_class):
   self.doubleSpinBoxCosC1.setVisible(False)
   self.doubleSpinBoxTC1.setVisible(False)
   self.doubleSpinBoxPC1.setVisible(False)
-  
-  self.labelLC1.setVisible(False)
-  self.labelCosC1.setVisible(False)
-  self.labelTC1.setVisible(False)
-  self.labelPC1.setVisible(False) 
+   
   
   self.spinBoxCantCarreteras.valueChanged.connect(self.agregarCarreteras)
-
+  self.agregarCarreteras()
   self.connect(self.comboBoxL, QtCore.SIGNAL("currentIndexChanged(const QString&)"), self.cambiarSpinboxL)
   self.connect(self.comboBoxCos, QtCore.SIGNAL("currentIndexChanged(const QString&)"), self.cambiarSpinboxCos)
   self.connect(self.comboBoxT, QtCore.SIGNAL("currentIndexChanged(const QString&)"), self.cambiarSpinboxT)
@@ -43,70 +39,70 @@ class Principal(QtGui.QMainWindow, form_class):
  def cambiarSpinboxL(self, v):#Para variable de Longitud
      if v == "L > C" or v == "L >= C":
          self.doubleSpinBoxLC1.setVisible(False)
-         self.labelLC1.setVisible(False)
+         
          self.doubleSpinBoxLC2.setVisible(True)
-         self.labelLC2.setVisible(True)
+        
      elif v == "L < C" or v == "L <= C":
          self.doubleSpinBoxLC1.setVisible(True)
-         self.labelLC1.setVisible(True)
+         
          self.doubleSpinBoxLC2.setVisible(False)
-         self.labelLC2.setVisible(False)
+   
      else:
          self.doubleSpinBoxLC1.setVisible(True)
          self.doubleSpinBoxLC2.setVisible(True)
-         self.labelLC1.setVisible(True)
-         self.labelLC2.setVisible(True)
+        # self.labelLC1.setVisible(True)
+         #self.labelLC2.setVisible(True)
          
  def cambiarSpinboxCos(self, v):#Para variable de Costo
      if v == "Cos > C" or v == "Cos >= C":
          self.doubleSpinBoxCosC1.setVisible(False)
          self.doubleSpinBoxCosC2.setVisible(True)
-         self.labelCosC1.setVisible(False)
-         self.labelCosC2.setVisible(True)
+         #self.labelCosC1.setVisible(False)
+         #self.labelCosC2.setVisible(True)
      elif v == "Cos < C" or v == "Cos <= C":
          self.doubleSpinBoxCosC1.setVisible(True)
          self.doubleSpinBoxCosC2.setVisible(False)
-         self.labelCosC1.setVisible(True)
-         self.labelCosC2.setVisible(False)
+         #self.labelCosC1.setVisible(True)
+         #self.labelCosC2.setVisible(False)
      else:
          self.doubleSpinBoxCosC1.setVisible(True)
          self.doubleSpinBoxCosC2.setVisible(True)
-         self.labelCosC1.setVisible(True)
-         self.labelCosC2.setVisible(True)
+         #self.labelCosC1.setVisible(True)
+         #self.labelCosC2.setVisible(True)
          
  def cambiarSpinboxT(self, v):#Para variable de Tiempo
      if v == "T > C" or v == "T >= C":
          self.doubleSpinBoxTC1.setVisible(False)
          self.doubleSpinBoxTC2.setVisible(True)
-         self.labelTC1.setVisible(False)
-         self.labelTC2.setVisible(True)
+         #self.labelTC1.setVisible(False)
+         #self.labelTC2.setVisible(True)
      elif v == "T < C" or v == "T <= C":
          self.doubleSpinBoxTC1.setVisible(True)
          self.doubleSpinBoxTC2.setVisible(False)
-         self.labelTC1.setVisible(True)
-         self.labelTC2.setVisible(False)        
+         #self.labelTC1.setVisible(True)
+         #self.labelTC2.setVisible(False)        
      else:
          self.doubleSpinBoxTC1.setVisible(True)
          self.doubleSpinBoxTC2.setVisible(True)
-         self.labelTC1.setVisible(True)
-         self.labelTC2.setVisible(True)
+         #self.labelTC1.setVisible(True)
+         #self.labelTC2.setVisible(True)
          
  def cambiarSpinboxP(self, v):#Para variable de Poblacion
      if v == "P > C" or v == "P >= C":
          self.doubleSpinBoxPC1.setVisible(False)
          self.doubleSpinBoxPC2.setVisible(True)
-         self.labelPC1.setVisible(False)
-         self.labelPC2.setVisible(True)
+         #self.labelPC1.setVisible(False)
+         #self.labelPC2.setVisible(True)
      elif v == "P < C" or v == "P <= C":
          self.doubleSpinBoxPC1.setVisible(True)
          self.doubleSpinBoxPC2.setVisible(False)
-         self.labelPC1.setVisible(True)
-         self.labelPC2.setVisible(False)         
+         #self.labelPC1.setVisible(True)
+         #self.labelPC2.setVisible(False)         
      else:
          self.doubleSpinBoxPC1.setVisible(True)
          self.doubleSpinBoxPC2.setVisible(True)
-         self.labelPC1.setVisible(True)
-         self.labelPC2.setVisible(True)   
+         #self.labelPC1.setVisible(True)
+        # self.labelPC2.setVisible(True)   
          
  def abrirExcel(self):#Para el programa 1
     nombre_fichero = QtGui.QFileDialog.getOpenFileName(self, "Abrir Excel", ruta)
