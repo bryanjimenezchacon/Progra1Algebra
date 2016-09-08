@@ -21,6 +21,7 @@ class Principal(QtGui.QMainWindow, form_class):
   self.buttonSeleccionarExcel.clicked.connect(self.abrirExcel)
   self.buttonCalcularCarretera.clicked.connect(self.calCarreteras)
   self.buttonAgregarCarreteras.clicked.connect(self.agregarCarreteras)
+  self.doubleSpinBoxLC1.setHidden(True)
  def abrirExcel(self):#Para el programa 1
     nombre_fichero = QtGui.QFileDialog.getOpenFileName(self, "Abrir Excel", ruta)
     if nombre_fichero:
