@@ -32,6 +32,8 @@ class Principal(QtGui.QMainWindow, form_class):
   self.labelTC1.setVisible(False)
   self.labelPC1.setVisible(False) 
   
+  self.spinBoxCantCarreteras.valueChanged.connect(self.agregarCarreteras)
+
   self.connect(self.comboBoxL, QtCore.SIGNAL("currentIndexChanged(const QString&)"), self.cambiarSpinboxL)
   self.connect(self.comboBoxCos, QtCore.SIGNAL("currentIndexChanged(const QString&)"), self.cambiarSpinboxCos)
   self.connect(self.comboBoxT, QtCore.SIGNAL("currentIndexChanged(const QString&)"), self.cambiarSpinboxT)
@@ -110,9 +112,6 @@ class Principal(QtGui.QMainWindow, form_class):
     nombre_fichero = QtGui.QFileDialog.getOpenFileName(self, "Abrir Excel", ruta)
     if nombre_fichero:
         self.fichero_actual = nombre_fichero
-       # self.setWindowTitle(QFileInfo(nombre_fichero).fileName())
-        #self.ruta = QFileInfo(nombre_fichero).path()
-        # TODO - Aqui va el codigo
         Programa1.procesar(nombre_fichero)
         
  def agregarCarreteras(self):#Para el programa 2
