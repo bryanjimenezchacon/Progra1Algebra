@@ -361,23 +361,10 @@
        <string>3. Introduzca los parámetros para las condiciones:</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="buttonAgregarCarreteras">
-      <property name="geometry">
-       <rect>
-        <x>490</x>
-        <y>90</y>
-        <width>171</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Agregar Carreteras</string>
-      </property>
-     </widget>
      <widget class="QLabel" name="nombreCantidadCarreteras_4">
       <property name="geometry">
        <rect>
-        <x>1050</x>
+        <x>1030</x>
         <y>160</y>
         <width>111</width>
         <height>31</height>
@@ -397,7 +384,7 @@
        <rect>
         <x>60</x>
         <y>410</y>
-        <width>881</width>
+        <width>811</width>
         <height>163</height>
        </rect>
       </property>

@@ -20,7 +20,7 @@ class Principal(QtGui.QMainWindow, form_class):
   self.setupUi(self)
   self.buttonSeleccionarExcel.clicked.connect(self.abrirExcel)
   self.buttonCalcularCarretera.clicked.connect(self.calCarreteras)
-  self.buttonAgregarCarreteras.clicked.connect(self.agregarCarreteras)
+
     
   self.doubleSpinBoxLC1.setVisible(False)
   self.doubleSpinBoxCosC1.setVisible(False)
