@@ -21,11 +21,29 @@ class Principal(QtGui.QMainWindow, form_class):
   self.buttonSeleccionarExcel.clicked.connect(self.abrirExcel)
   self.buttonCalcularCarretera.clicked.connect(self.calCarreteras)
   self.buttonAgregarCarreteras.clicked.connect(self.agregarCarreteras)
+    
+  self.doubleSpinBoxLC1.setVisible(False)
+  self.doubleSpinBoxCosC1.setVisible(False)
+  self.doubleSpinBoxTC1.setVisible(False)
+  self.doubleSpinBoxPC1.setVisible(False)  
+  
   self.connect(self.comboBoxL, QtCore.SIGNAL("currentIndexChanged(const QString&)"), self.cambiarSpinboxL)
+  self.connect(self.comboBoxCos, QtCore.SIGNAL("currentIndexChanged(const QString&)"), self.cambiarSpinboxCos)
+  self.connect(self.comboBoxT, QtCore.SIGNAL("currentIndexChanged(const QString&)"), self.cambiarSpinboxT)
+  self.connect(self.comboBoxP, QtCore.SIGNAL("currentIndexChanged(const QString&)"), self.cambiarSpinboxP)
 
-#  self.doubleSpinBoxLC1.setVisible(False)
- def cambiarSpinboxL(self, v):
-     print("hola")
+ ## Modifica la interfaz para las condiciones segun lo seleccionado 
+ def cambiarSpinboxL(self, v):#Para variable de Longitud
+
+     print(v)
+ def cambiarSpinboxCos(self, v):#Para variable de Costo
+
+     print(v)
+ def cambiarSpinboxT(self, v):#Para variable de Tiempo
+
+     print(v)
+ def cambiarSpinboxP(self, v):#Para variable de Poblacion
+
      print(v)
  def abrirExcel(self):#Para el programa 1
     nombre_fichero = QtGui.QFileDialog.getOpenFileName(self, "Abrir Excel", ruta)

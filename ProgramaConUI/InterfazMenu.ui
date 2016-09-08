@@ -377,8 +377,8 @@
      <widget class="QLabel" name="nombreCantidadCarreteras_4">
       <property name="geometry">
        <rect>
-        <x>850</x>
-        <y>370</y>
+        <x>560</x>
+        <y>480</y>
         <width>111</width>
         <height>31</height>
        </rect>
@@ -403,7 +403,7 @@
       </property>
       <layout class="QGridLayout" name="gridLayout">
        <item row="2" column="9">
-        <widget class="QDoubleSpinBox" name="doubleSpinBox_7">
+        <widget class="QDoubleSpinBox" name="doubleSpinBoxPC1">
          <property name="decimals">
           <number>3</number>
          </property>
@@ -477,7 +477,7 @@
         </widget>
        </item>
        <item row="2" column="6">
-        <widget class="QDoubleSpinBox" name="doubleSpinBox_5">
+        <widget class="QDoubleSpinBox" name="doubleSpinBoxTC1">
          <property name="decimals">
           <number>3</number>
          </property>
@@ -508,7 +508,7 @@
         </widget>
        </item>
        <item row="2" column="3">
-        <widget class="QDoubleSpinBox" name="doubleSpinBox_3">
+        <widget class="QDoubleSpinBox" name="doubleSpinBoxCosC1">
          <property name="decimals">
           <number>3</number>
          </property>
@@ -528,7 +528,7 @@
         </widget>
        </item>
        <item row="2" column="5">
-        <widget class="QDoubleSpinBox" name="doubleSpinBox_4">
+        <widget class="QDoubleSpinBox" name="doubleSpinBoxCosC2">
          <property name="decimals">
           <number>3</number>
          </property>
@@ -538,7 +538,7 @@
         </widget>
        </item>
        <item row="2" column="8">
-        <widget class="QDoubleSpinBox" name="doubleSpinBox_8">
+        <widget class="QDoubleSpinBox" name="doubleSpinBoxTC2">
          <property name="decimals">
           <number>3</number>
          </property>
@@ -548,7 +548,7 @@
         </widget>
        </item>
        <item row="2" column="10">
-        <widget class="QComboBox" name="comboBox_5">
+        <widget class="QComboBox" name="comboBoxP">
          <item>
           <property name="text">
            <string>P &gt; C</string>
@@ -592,7 +592,7 @@
         </widget>
        </item>
        <item row="2" column="11">
-        <widget class="QDoubleSpinBox" name="doubleSpinBox_6">
+        <widget class="QDoubleSpinBox" name="doubleSpinBoxPC2">
          <property name="decimals">
           <number>3</number>
          </property>
@@ -602,7 +602,7 @@
         </widget>
        </item>
        <item row="2" column="4">
-        <widget class="QComboBox" name="comboBox_2">
+        <widget class="QComboBox" name="comboBoxCos">
          <item>
           <property name="text">
            <string>Cos &gt; C</string>
@@ -646,7 +646,7 @@
         </widget>
        </item>
        <item row="2" column="7">
-        <widget class="QComboBox" name="comboBox_3">
+        <widget class="QComboBox" name="comboBoxT">
          <item>
           <property name="text">
            <string>T &gt; C</string>
