@@ -115,7 +115,7 @@ class Principal(QtGui.QMainWindow, form_class):
 
      
  def calCarreteras(self):#Para el programa 2
-     Programa2.analizarMatrices(self.spinBoxCantCarreteras.value(), self.tableWidgetRutas)
+     Programa2.analizarMatrices(self.spinBoxCantCarreteras.value(), self.tableWidgetRutas, self.comboBoxL.currentText())
      
      
 class Programa1():
@@ -504,12 +504,12 @@ class Programa2():
         while cantCarreteras != 0:
             rowPosition = tableWidgetRutas.rowCount()
             tableWidgetRutas.insertRow(rowPosition)
-            print(rowPosition)
             tableWidgetRutas.setItem(rowPosition,0, QtGui.QTableWidgetItem("R" + str(rowPosition + 1)))
             cantCarreteras -= 1
         
         
-    def analizarMatrices(val,tableWidgetRutas):
+    def analizarMatrices(val,tableWidgetRutas, formatoLongitud):
+        print(formatoLongitud)
         cantFilas = val
         tablacondiciones = []
         #numeroCarreteras = int (input("Digite algo: ")) 
