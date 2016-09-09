@@ -388,7 +388,7 @@
         <height>163</height>
        </rect>
       </property>
-      <layout class="QGridLayout" name="gridLayout">
+      <layout class="QGridLayout" name="gridLayoutVariables">
        <item row="5" column="0">
         <widget class="QLabel" name="label_14">
          <property name="font">

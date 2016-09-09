@@ -114,8 +114,14 @@ class Principal(QtGui.QMainWindow, form_class):
      Programa2.generarInterfaz(self.spinBoxCantCarreteras.value(), self.tableWidgetRutas)
 
      
- def calCarreteras(self):#Para el programa 2
-     Programa2.analizarMatrices(self.spinBoxCantCarreteras.value(), self.tableWidgetRutas, self.comboBoxL.currentText())
+ def calCarreteras(self):#Para el programa 2 Recoger
+     Programa2.analizarMatrices(self.spinBoxCantCarreteras.value(), self.tableWidgetRutas, self.comboBoxL.currentText() ,
+                                self.comboBoxCos.currentText(), self.comboBoxT.currentText(), self.comboBoxP.currentText(),
+                                self.doubleSpinBoxLC1.value(), self.doubleSpinBoxLC2.value(),
+                                self.doubleSpinBoxCosC1.value(), self.doubleSpinBoxCosC2.value(),
+                                self.doubleSpinBoxTC1.value(), self.doubleSpinBoxTC2.value(),
+                                self.doubleSpinBoxPC1.value(), self.doubleSpinBoxPC2.value()
+                                )
      
      
 class Programa1():
@@ -508,8 +514,13 @@ class Programa2():
             cantCarreteras -= 1
         
         
-    def analizarMatrices(val,tableWidgetRutas, formatoLongitud):
+    def analizarMatrices(val,tableWidgetRutas,formatoLongitud, formatoCosto, formatoTiempo, formatoPoblacion, CL1 = 0, CL2 = 0, CCos1 = 0, CCos2 = 2, CT1 = 0, CT2 = 0, CP1 = 0, CP2 = 0):
         print(formatoLongitud)
+        print(formatoTiempo)
+        print(formatoCosto)
+        print(formatoPoblacion)
+        print(CL1)
+       
         cantFilas = val
         tablacondiciones = []
         #numeroCarreteras = int (input("Digite algo: ")) 
