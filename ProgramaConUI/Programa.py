@@ -115,7 +115,8 @@ class Principal(QtGui.QMainWindow, form_class):
 
      
  def calCarreteras(self):#Para el programa 2 Recoger
-     Programa2.analizarMatrices(self.spinBoxCantCarreteras.value(), self.tableWidgetRutas, self.comboBoxL.currentText() ,
+     Programa2.analizarMatrices(self.spinBoxCantCarreteras.value(), self.tableWidgetRutas,self.labelResultados, 
+                                self.comboBoxL.currentText() ,
                                 self.comboBoxCos.currentText(), self.comboBoxT.currentText(), self.comboBoxP.currentText(),
                                 self.doubleSpinBoxLC1.value(), self.doubleSpinBoxLC2.value(),
                                 self.doubleSpinBoxCosC1.value(), self.doubleSpinBoxCosC2.value(),
@@ -514,19 +515,13 @@ class Programa2():
             cantCarreteras -= 1
         
         
-    def analizarMatrices(val,tableWidgetRutas,
+    def analizarMatrices(val,tableWidgetRutas,labelResultados,
                          formatoLongitud, formatoCosto, formatoTiempo, formatoPoblacion, 
                          CL1 = 0, CL2 = 0,
                          CCos1 = 0, CCos2 = 2,
                          CT1 = 0, CT2 = 0, 
                          CP1 = 0, CP2 = 0
                          ):
-        print(formatoLongitud)
-        print(formatoTiempo)
-        print(formatoCosto)
-        print(formatoPoblacion)
-        print(CL1)
-       
         cantFilas = val
         tablacondiciones = []
         #numeroCarreteras = int (input("Digite algo: ")) 
@@ -557,188 +552,206 @@ class Programa2():
         print(tablaResultado)
         posiblesSoluciones = []
         for i in range(0, len(tablaResultado)):
-            posiblesSoluciones.append(False)
+            posiblesSoluciones.append(0)
         print("Posibles soluciones antes")
         print(posiblesSoluciones)
         contador = 0
         for i in range(0, len(tablaResultado)):#Evalua longitud formatoLongitud / CL1 / CL2
             if formatoLongitud == "L > C":
                 if (tablaResultado.item(contador) > CL2):
-                    posiblesSoluciones[i] = True
+                    posiblesSoluciones[i] += 1
         
-                    contador += 4#Cantidad columnas
+
             if formatoLongitud == "L >= C":
                 if (tablaResultado.item(contador) >= CL2):
-                    posiblesSoluciones[i] = True
+                    posiblesSoluciones[i] += 1
         
-                    contador += 4#Cantidad columnas
+
             if formatoLongitud == "L < C":
                 if (tablaResultado.item(contador) < CL1):
-                    posiblesSoluciones[i] = True
+                    posiblesSoluciones[i] += 1
         
-                    contador += 4#Cantidad columnas
+
             if formatoLongitud == "L <= C":
                 if (tablaResultado.item(contador) <= CL1):
-                    posiblesSoluciones[i] = True
+                    posiblesSoluciones[i] += 1
         
-                    contador += 4#Cantidad columnas
+
             if formatoLongitud == "C1 < L < C2":
-                if (tablaResultado.item(contador) > CL1) or (tablaResultado.item(contador) < CL2):
-                    posiblesSoluciones[i] = True
-        
-                    contador += 4#Cantidad columnas
+                print("C1 < L < C2")
+                
+                print(CL1)
+                print(tablaResultado.item(contador))
+                print(CL2)
+                
+                if (tablaResultado.item(contador) > CL1) and (tablaResultado.item(contador) < CL2):
+                    posiblesSoluciones[i] += 1
+
             if formatoLongitud == "C1 < L <= C2":
-                if (tablaResultado.item(contador) > CL1) or (tablaResultado.item(contador) <= CL2):
-                    posiblesSoluciones[i] = True
+                if (tablaResultado.item(contador) > CL1) and (tablaResultado.item(contador) <= CL2):
+                    posiblesSoluciones[i] += 1
         
-                    contador += 4#Cantidad columnas
+
             if formatoLongitud == "C1 <= L < C2":
-                if (tablaResultado.item(contador) >= CL1) or (tablaResultado.item(contador) < CL2):
-                    posiblesSoluciones[i] = True
+                if (tablaResultado.item(contador) >= CL1) and (tablaResultado.item(contador) < CL2):
+                    posiblesSoluciones[i] += 1
         
-                    contador += 4#Cantidad columnas
+
             if formatoLongitud == "C1 <= L <= C2":
-                if (tablaResultado.item(contador) >= CL1) or (tablaResultado.item(contador) <= CL2):
-                    posiblesSoluciones[i] = True
+                if (tablaResultado.item(contador) >= CL1) and (tablaResultado.item(contador) <= CL2):
+                    posiblesSoluciones[i] += 1 
         
-                    contador += 4#Cantidad columnas                    
-        
+            contador += 4#Cantidad columnas                    
+        print("Posibles soluciones")   
+        print(posiblesSoluciones)        
         contador = 1
         for i in range(0, len(tablaResultado)):#Evalua total
             
             if formatoCosto == "Cos > C":
                 if (tablaResultado.item(contador) > CCos2):
-                    posiblesSoluciones[i] = True
+                    posiblesSoluciones[i]  += 1
         
-                    contador += 4#Cantidad columnas
+                    
             if formatoCosto == "Cos >= C":
                 if (tablaResultado.item(contador) >= CCos2):
-                    posiblesSoluciones[i] = True
+                    posiblesSoluciones[i]  += 1
         
-                    contador += 4#Cantidad columnas
+                     
             if formatoCosto == "Cos < C":
                 if (tablaResultado.item(contador) < CCos1):
-                    posiblesSoluciones[i] = True
+                    posiblesSoluciones[i]  += 1
         
-                    contador += 4#Cantidad columnas
+                     
             if formatoCosto == "Cos <= C":
                 if (tablaResultado.item(contador) <= CCos1):
-                    posiblesSoluciones[i] = True
+                    posiblesSoluciones[i]  += 1
         
-                    contador += 4#Cantidad columnas
+                     
             if formatoCosto == "C1 < Cos < C2":
-                if (tablaResultado.item(contador) > CCos1) or (tablaResultado.item(contador) < CCos2):
-                    posiblesSoluciones[i] = True
+                if (tablaResultado.item(contador) > CCos1) and (tablaResultado.item(contador) < CCos2):
+                    posiblesSoluciones[i]  += 1
         
-                    contador += 4#Cantidad columnas
+                     
             if formatoCosto == "C1 < Cos <= C2":
-                if (tablaResultado.item(contador) > CCos1) or (tablaResultado.item(contador) <= CCos2):
-                    posiblesSoluciones[i] = True
+                if (tablaResultado.item(contador) > CCos1) and (tablaResultado.item(contador) <= CCos2):
+                    posiblesSoluciones[i]  += 1
         
-                    contador += 4#Cantidad columnas
+                     
             if formatoCosto == "C1 <= Cos < C2":
-                if (tablaResultado.item(contador) >= CCos1) or (tablaResultado.item(contador) < CCos2):
-                    posiblesSoluciones[i] = True
+                if (tablaResultado.item(contador) >= CCos1) and (tablaResultado.item(contador) < CCos2):
+                    posiblesSoluciones[i]  += 1
         
-                    contador += 4#Cantidad columnas
+                     
             if formatoCosto == "C1 <= Cos <= C2":
-                if (tablaResultado.item(contador) >= CCos1) or (tablaResultado.item(contador) <= CCos2):
-                    posiblesSoluciones[i] = True
+                if (tablaResultado.item(contador) >= CCos1) and (tablaResultado.item(contador) <= CCos2):
+                    posiblesSoluciones[i]  += 1
         
-                    contador += 4#Cantidad columnas
-           
+            contador += 4#Cantidad columnas
+        print("Posibles soluciones")   
+        print(posiblesSoluciones)           
         contador = 2
         for i in range(0, len(tablaResultado)):#Evalua tiempo
             if formatoTiempo == "T > C":
                 if (tablaResultado.item(contador) > CT2):
-                    posiblesSoluciones[i] = True
+                    posiblesSoluciones[i]  += 1
         
-                    contador += 4#Cantidad columnas
+                     
             if formatoTiempo == "T >= C":
                 if (tablaResultado.item(contador) >= CT2):
-                    posiblesSoluciones[i] = True
+                    posiblesSoluciones[i]  += 1
         
-                    contador += 4#Cantidad columnas
+                     
             if formatoTiempo == "T < C":
                 if (tablaResultado.item(contador) < CT1):
-                    posiblesSoluciones[i] = True
+                    posiblesSoluciones[i]  += 1
         
-                    contador += 4#Cantidad columnas
+                     
             if formatoTiempo == "T <= C":
                 if (tablaResultado.item(contador) <= CT1):
-                    posiblesSoluciones[i] = True
+                    posiblesSoluciones[i]  += 1
         
-                    contador += 4#Cantidad columnas
+                     
             if formatoTiempo == "C1 < T < C2":
-                if (tablaResultado.item(contador) > CT1) or (tablaResultado.item(contador) < CT2):
-                    posiblesSoluciones[i] = True
+                if (tablaResultado.item(contador) > CT1) and (tablaResultado.item(contador) < CT2):
+                    posiblesSoluciones[i]  += 1
         
-                    contador += 4#Cantidad columnas
+                     
             if formatoTiempo == "C1 < T <= C2":
-                if (tablaResultado.item(contador) > CT1) or (tablaResultado.item(contador) <= CT2):
-                    posiblesSoluciones[i] = True
+                if (tablaResultado.item(contador) > CT1) and (tablaResultado.item(contador) <= CT2):
+                    posiblesSoluciones[i]  += 1
         
-                    contador += 4#Cantidad columnas
+                     
             if formatoTiempo == "C1 <= T < C2":
-                if (tablaResultado.item(contador) >= CT1) or (tablaResultado.item(contador) < CT2):
-                    posiblesSoluciones[i] = True
+                if (tablaResultado.item(contador) >= CT1) and (tablaResultado.item(contador) < CT2):
+                    posiblesSoluciones[i]  += 1
         
-                    contador += 4#Cantidad columnas
+                     
             if formatoTiempo == "C1 <= T <= C2":
-                if (tablaResultado.item(contador) >= CT1) or (tablaResultado.item(contador) <= CT2):
-                    posiblesSoluciones[i] = True
+                if (tablaResultado.item(contador) >= CT1) and (tablaResultado.item(contador) <= CT2):
+                    posiblesSoluciones[i]  += 1
         
-                    contador += 4#Cantidad columnas
-            
+            contador += 4#Cantidad columnas
+        print("Posibles soluciones")   
+        print(posiblesSoluciones)            
         contador = 3
         for i in range(0, len(tablaResultado)):#Evalua beneficiados
             if formatoPoblacion == "P > C":
                 if (tablaResultado.item(contador) > CP2):
-                    posiblesSoluciones[i] = True
+                    posiblesSoluciones[i]  += 1
         
-                    contador += 4#Cantidad columnas
+                     
             if formatoPoblacion == "P >= C":
                 if (tablaResultado.item(contador) >= CP2):
-                    posiblesSoluciones[i] = True
+                    posiblesSoluciones[i]  += 1
         
-                    contador += 4#Cantidad columnas
+                     
             if formatoPoblacion == "P < C":
                 if (tablaResultado.item(contador) < CP1):
-                    posiblesSoluciones[i] = True
+                    posiblesSoluciones[i]  += 1
         
-                    contador += 4#Cantidad columnas
+                     
             if formatoPoblacion == "P <= C":
                 if (tablaResultado.item(contador) <= CP1):
-                    posiblesSoluciones[i] = True
+                    posiblesSoluciones[i]  += 1
         
-                    contador += 4#Cantidad columnas
+                     
             if formatoPoblacion == "C1 < P < C2":
-                if (tablaResultado.item(contador) > CP1) or (tablaResultado.item(contador) < CP2):
-                    posiblesSoluciones[i] = True
+                if (tablaResultado.item(contador) > CP1) and (tablaResultado.item(contador) < CP2):
+                    posiblesSoluciones[i]  += 1
         
-                    contador += 4#Cantidad columnas
+                     
             if formatoPoblacion == "C1 < P <= C2":
-                if (tablaResultado.item(contador) > CP1) or (tablaResultado.item(contador) <= CP2):
-                    posiblesSoluciones[i] = True
+                if (tablaResultado.item(contador) > CP1) and (tablaResultado.item(contador) <= CP2):
+                    posiblesSoluciones[i]  += 1
         
-                    contador += 4#Cantidad columnas
+                     
             if formatoPoblacion == "C1 <= P < C2":
-                if (tablaResultado.item(contador) >= CP1) or (tablaResultado.item(contador) < CP2):
-                    posiblesSoluciones[i] = True
+                if (tablaResultado.item(contador) >= CP1) and (tablaResultado.item(contador) < CP2):
+                    posiblesSoluciones[i]  += 1
         
-                    contador += 4#Cantidad columnas
+                     
             if formatoPoblacion == "C1 <= P <= C2":
-                if (tablaResultado.item(contador) >= CP1) or (tablaResultado.item(contador) <= CP2):
-                    posiblesSoluciones[i] = True
+                if (tablaResultado.item(contador) >= CP1) and (tablaResultado.item(contador) <= CP2):
+                    posiblesSoluciones[i]  += 1
         
-                    contador += 4#Cantidad columnas
+            contador += 4#Cantidad columnas
         print("Posibles soluciones")   
         print(posiblesSoluciones)
+        respuestaCorrecta = []
         for i in range(0, len(posiblesSoluciones)):
-            if posiblesSoluciones[i] == True:
+            if posiblesSoluciones[i] == 4:
                 print("Tabla {i}")
-                print(table[i])  
+                print(table[i])
+                respuestaCorrecta.append([tablaResultado[i], table[i]])
 
+        if len(respuestaCorrecta) == 0:
+            labelResultados.setText("No existe alguna solución satisfactoria")
+        else:
+            filasCorrectas = ""
+            for i in range(0, len(respuestaCorrecta)):
+                filasCorrectas += (str(respuestaCorrecta[i][0]) + str(respuestaCorrecta[i][1]))
+            labelResultados.setText(filasCorrectas)
+            
 ## MAIN ##
 if __name__ == "__main__":
     app = QtGui.QApplication(sys.argv)
