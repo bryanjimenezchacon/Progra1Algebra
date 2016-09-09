@@ -384,17 +384,7 @@
          </property>
         </widget>
        </item>
-       <item row="5" column="1">
-        <widget class="QDoubleSpinBox" name="doubleSpinBoxTC1">
-         <property name="decimals">
-          <number>3</number>
-         </property>
-         <property name="maximum">
-          <double>9999.998999999999796</double>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="3">
+       <item row="5" column="4">
         <widget class="QDoubleSpinBox" name="doubleSpinBoxTC2">
          <property name="decimals">
           <number>3</number>
@@ -404,15 +394,15 @@
          </property>
         </widget>
        </item>
-       <item row="1" column="1" alignment="Qt::AlignHCenter">
+       <item row="1" column="2" alignment="Qt::AlignHCenter">
         <widget class="QLabel" name="labelCondicion">
          <property name="text">
           <string>Condición 1</string>
          </property>
         </widget>
        </item>
-       <item row="6" column="1">
-        <widget class="QDoubleSpinBox" name="doubleSpinBoxPC1">
+       <item row="5" column="2">
+        <widget class="QDoubleSpinBox" name="doubleSpinBoxTC1">
          <property name="decimals">
           <number>3</number>
          </property>
@@ -421,48 +411,41 @@
          </property>
         </widget>
        </item>
-       <item row="5" column="2">
-        <widget class="QComboBox" name="comboBoxT">
-         <item>
-          <property name="text">
-           <string>T &gt; C</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>T &gt;= C</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>T &lt; C</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>T &lt;= C</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>C1 &lt; T &lt; C2</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>C1 &lt; T &lt;= C2</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>C1 &lt;= T &lt; C2</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>C1 &lt;= T &lt;= C2</string>
-          </property>
-         </item>
+       <item row="1" column="0" alignment="Qt::AlignHCenter">
+        <widget class="QLabel" name="label_18">
+         <property name="text">
+          <string>Variables</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="4" alignment="Qt::AlignHCenter">
+        <widget class="QLabel" name="labelLCondicion2">
+         <property name="text">
+          <string>Condición 2</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="label_15">
+         <property name="font">
+          <font>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Costo Total</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="4">
+        <widget class="QDoubleSpinBox" name="doubleSpinBoxCosC2">
+         <property name="decimals">
+          <number>3</number>
+         </property>
+         <property name="maximum">
+          <double>9999.998999999999796</double>
+         </property>
         </widget>
        </item>
        <item row="3" column="0">
@@ -481,6 +464,59 @@
          </property>
         </widget>
        </item>
+       <item row="6" column="4">
+        <widget class="QDoubleSpinBox" name="doubleSpinBoxPC2">
+         <property name="decimals">
+          <number>3</number>
+         </property>
+         <property name="maximum">
+          <double>9999.998999999999796</double>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="2">
+        <widget class="QDoubleSpinBox" name="doubleSpinBoxLC1">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="decimals">
+          <number>3</number>
+         </property>
+         <property name="maximum">
+          <double>9999.998999999999796</double>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="2">
+        <widget class="QDoubleSpinBox" name="doubleSpinBoxCosC1">
+         <property name="decimals">
+          <number>3</number>
+         </property>
+         <property name="maximum">
+          <double>9999.998999999999796</double>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="2">
+        <widget class="QDoubleSpinBox" name="doubleSpinBoxPC1">
+         <property name="decimals">
+          <number>3</number>
+         </property>
+         <property name="maximum">
+          <double>9999.998999999999796</double>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="4">
+        <widget class="QDoubleSpinBox" name="doubleSpinBoxLC2">
+         <property name="decimals">
+          <number>3</number>
+         </property>
+         <property name="maximum">
+          <double>9999.998999999999796</double>
+         </property>
+        </widget>
+       </item>
        <item row="6" column="0">
         <widget class="QLabel" name="label_16">
          <property name="font">
@@ -494,27 +530,14 @@
          </property>
         </widget>
        </item>
-       <item row="4" column="1">
-        <widget class="QDoubleSpinBox" name="doubleSpinBoxCosC1">
-         <property name="decimals">
-          <number>3</number>
-         </property>
-         <property name="maximum">
-          <double>9999.998999999999796</double>
+       <item row="1" column="1" alignment="Qt::AlignHCenter">
+        <widget class="QLabel" name="labelComparacion">
+         <property name="text">
+          <string>Comparación</string>
          </property>
         </widget>
        </item>
-       <item row="3" column="3">
-        <widget class="QDoubleSpinBox" name="doubleSpinBoxLC2">
-         <property name="decimals">
-          <number>3</number>
-         </property>
-         <property name="maximum">
-          <double>9999.998999999999796</double>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="2">
+       <item row="3" column="1">
         <widget class="QComboBox" name="comboBoxL">
          <item>
           <property name="text">
@@ -558,77 +581,7 @@
          </item>
         </widget>
        </item>
-       <item row="6" column="2">
-        <widget class="QComboBox" name="comboBoxP">
-         <item>
-          <property name="text">
-           <string>P &gt; C</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>P &gt;= C</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>P &lt; C</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>P &lt;= C</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>C1 &lt; P &lt; C2</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>C1 &lt; P &lt;= C2</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>C1 &lt;= P &lt; C2</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>C1 &lt;= P &lt;= C2</string>
-          </property>
-         </item>
-        </widget>
-       </item>
-       <item row="4" column="0">
-        <widget class="QLabel" name="label_15">
-         <property name="font">
-          <font>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>Costo Total</string>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="1">
-        <widget class="QDoubleSpinBox" name="doubleSpinBoxLC1">
-         <property name="enabled">
-          <bool>true</bool>
-         </property>
-         <property name="decimals">
-          <number>3</number>
-         </property>
-         <property name="maximum">
-          <double>9999.998999999999796</double>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="2">
+       <item row="4" column="1">
         <widget class="QComboBox" name="comboBoxCos">
          <item>
           <property name="text">
@@ -672,45 +625,92 @@
          </item>
         </widget>
        </item>
-       <item row="4" column="3">
-        <widget class="QDoubleSpinBox" name="doubleSpinBoxCosC2">
-         <property name="decimals">
-          <number>3</number>
-         </property>
-         <property name="maximum">
-          <double>9999.998999999999796</double>
-         </property>
+       <item row="5" column="1">
+        <widget class="QComboBox" name="comboBoxT">
+         <item>
+          <property name="text">
+           <string>T &gt; C</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>T &gt;= C</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>T &lt; C</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>T &lt;= C</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>C1 &lt; T &lt; C2</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>C1 &lt; T &lt;= C2</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>C1 &lt;= T &lt; C2</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>C1 &lt;= T &lt;= C2</string>
+          </property>
+         </item>
         </widget>
        </item>
-       <item row="6" column="3">
-        <widget class="QDoubleSpinBox" name="doubleSpinBoxPC2">
-         <property name="decimals">
-          <number>3</number>
-         </property>
-         <property name="maximum">
-          <double>9999.998999999999796</double>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="2" alignment="Qt::AlignHCenter">
-        <widget class="QLabel" name="labelComparacion">
-         <property name="text">
-          <string>Comparación</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="3" alignment="Qt::AlignHCenter">
-        <widget class="QLabel" name="labelLCondicion2">
-         <property name="text">
-          <string>Condición 2</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0" alignment="Qt::AlignHCenter">
-        <widget class="QLabel" name="label_18">
-         <property name="text">
-          <string>Variables</string>
-         </property>
+       <item row="6" column="1">
+        <widget class="QComboBox" name="comboBoxP">
+         <item>
+          <property name="text">
+           <string>P &gt; C</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>P &gt;= C</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>P &lt; C</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>P &lt;= C</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>C1 &lt; P &lt; C2</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>C1 &lt; P &lt;= C2</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>C1 &lt;= P &lt; C2</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>C1 &lt;= P &lt;= C2</string>
+          </property>
+         </item>
         </widget>
        </item>
       </layout>
