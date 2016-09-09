@@ -552,11 +552,47 @@ class Programa2():
             posiblesSoluciones.append(True)
         
         contador = 0
-        for i in range(0, len(tablaResultado)):#Evalua longitud
-            if (tablaResultado.item(contador) < 80) or (tablaResultado.item(contador) > 140):
-                posiblesSoluciones[i] = False
+        for i in range(0, len(tablaResultado)):#Evalua longitud formatoLongitud / CL1 / CL2
+            if formatoLongitud == "L > C":
+                if (tablaResultado.item(contador) > CL2):
+                    posiblesSoluciones[i] = False
         
-            contador += 4#Cantidad columnas
+                    contador += 4#Cantidad columnas
+            if formatoLongitud == "L >= C":
+                if (tablaResultado.item(contador) >= CL2):
+                    posiblesSoluciones[i] = False
+        
+                    contador += 4#Cantidad columnas
+            if formatoLongitud == "L < C":
+                if (tablaResultado.item(contador) < CL1):
+                    posiblesSoluciones[i] = False
+        
+                    contador += 4#Cantidad columnas
+            if formatoLongitud == "L <= C":
+                if (tablaResultado.item(contador) <= CL1):
+                    posiblesSoluciones[i] = False
+        
+                    contador += 4#Cantidad columnas
+            if formatoLongitud == "C1 < L < C2":
+                if (tablaResultado.item(contador) < CL1) or (tablaResultado.item(contador) > CL2):
+                    posiblesSoluciones[i] = False
+        
+                    contador += 4#Cantidad columnas
+            if formatoLongitud == "C1 < L <= C2":
+                if (tablaResultado.item(contador) < 80) or (tablaResultado.item(contador) > 140):
+                    posiblesSoluciones[i] = False
+        
+                    contador += 4#Cantidad columnas
+            if formatoLongitud == "C1 <= L < C2":
+                if (tablaResultado.item(contador) < 80) or (tablaResultado.item(contador) > 140):
+                    posiblesSoluciones[i] = False
+        
+                    contador += 4#Cantidad columnas
+            if formatoLongitud == "C1 <= L <= C2":
+                if (tablaResultado.item(contador) < 80) or (tablaResultado.item(contador) > 140):
+                    posiblesSoluciones[i] = False
+        
+                    contador += 4#Cantidad columnas                    
         
         contador = 1
         for i in range(0, len(tablaResultado)):#Evalua total
