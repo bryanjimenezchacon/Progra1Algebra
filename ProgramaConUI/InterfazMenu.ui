@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -777,8 +777,8 @@
      <widget class="QLabel" name="label_3">
       <property name="geometry">
        <rect>
-        <x>480</x>
-        <y>10</y>
+        <x>470</x>
+        <y>0</y>
         <width>351</width>
         <height>101</height>
        </rect>
@@ -796,6 +796,81 @@
       <property name="scaledContents">
        <bool>false</bool>
       </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBoxOrden">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>430</x>
+        <y>90</y>
+        <width>51</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="minimum">
+       <number>1</number>
+      </property>
+      <property name="maximum">
+       <number>8</number>
+      </property>
+     </widget>
+     <widget class="QLabel" name="nombreOrdenEstructura">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>90</y>
+        <width>351</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>1. Digite el orden de la estructura (1-8):</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="nombreDatosEstructura">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>140</y>
+        <width>351</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>2. Introduzca los datos para la estructura:</string>
+      </property>
+     </widget>
+     <widget class="QTableWidget" name="tableWidgetDatosEstructura">
+      <property name="geometry">
+       <rect>
+        <x>260</x>
+        <y>170</y>
+        <width>631</width>
+        <height>192</height>
+       </rect>
+      </property>
+      <row>
+       <property name="text">
+        <string>a</string>
+       </property>
+      </row>
+      <column>
+       <property name="text">
+        <string>a</string>
+       </property>
+      </column>
      </widget>
     </widget>
    </widget>

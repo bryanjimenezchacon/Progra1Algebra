@@ -18,23 +18,28 @@ class Principal(QtGui.QMainWindow, form_class):
  def __init__(self, parent=None):
   QtGui.QMainWindow.__init__(self, parent)
   self.setupUi(self)
+  
+  #Para programa 1
   self.buttonSeleccionarExcel.clicked.connect(self.abrirExcel)
   self.buttonCalcularCarretera.clicked.connect(self.calCarreteras)
 
-    
+  #Para programa 2  
   self.doubleSpinBoxLC1.setVisible(False)
   self.doubleSpinBoxCosC1.setVisible(False)
   self.doubleSpinBoxTC1.setVisible(False)
   self.doubleSpinBoxPC1.setVisible(False)
    
   
-  self.spinBoxCantCarreteras.valueChanged.connect(self.agregarCarreteras)
+  self.spinBoxCantCarreteras.valueChanged.connect(self.agregarCarreteras)#Se activa cuando se modifica el spinbox del programa 2
   self.agregarCarreteras()
   self.connect(self.comboBoxL, QtCore.SIGNAL("currentIndexChanged(const QString&)"), self.cambiarSpinboxL)
   self.connect(self.comboBoxCos, QtCore.SIGNAL("currentIndexChanged(const QString&)"), self.cambiarSpinboxCos)
   self.connect(self.comboBoxT, QtCore.SIGNAL("currentIndexChanged(const QString&)"), self.cambiarSpinboxT)
   self.connect(self.comboBoxP, QtCore.SIGNAL("currentIndexChanged(const QString&)"), self.cambiarSpinboxP)
-
+  
+  #Para programa 3
+  self.spinBoxOrden.valueChanged.connect(self.agregarCampos)#Para la tabla del programa 3
+  
  ## Modifica la interfaz para las condiciones segun lo seleccionado 
  def cambiarSpinboxL(self, v):#Para variable de Longitud
      if v == "L > C" or v == "L >= C":
@@ -123,7 +128,9 @@ class Principal(QtGui.QMainWindow, form_class):
                                 self.doubleSpinBoxTC1.value(), self.doubleSpinBoxTC2.value(),
                                 self.doubleSpinBoxPC1.value(), self.doubleSpinBoxPC2.value()
                                 )
-     
+                                
+ def agregarCampos(self):
+     Programa3.generarTabla(self.spinBoxOrden.value(), self.tableWidgetDatosEstructura)
      
 class Programa1():
     def __init__(self):
@@ -524,7 +531,7 @@ class Programa2():
                          ):
         cantFilas = val
         tablacondiciones = []
-        #numeroCarreteras = int (input("Digite algo: ")) 
+
         table = list(product([0, 1], repeat = cantFilas))# 3 por ahora
         
         for i in range(0, cantFilas):
@@ -537,13 +544,7 @@ class Programa2():
         print("Tabla de carreteras")
         print(tablacondiciones)
          
- #       r1 = [22,32.3,4.5,15]
-  #      r2 = [62,53,7,122]
-   #     r3 = [73.8,68,8,143]
-    
-    #    tablacondiciones.append(r1)
-       # tablacondiciones.append(r2)
-      #  tablacondiciones.append(r3)  
+
         x = np.matrix(table)
         y = np.matrix(tablacondiciones)
         
@@ -752,6 +753,29 @@ class Programa2():
                 filasCorrectas += (str(respuestaCorrecta[i][0]) + str(respuestaCorrecta[i][1]))
             labelResultados.setText(filasCorrectas)
             
+class Programa3():
+    def __init__(self):
+        pass
+    
+    def generarTabla(val, tableWidgetEstructura):
+        posiblesValores = "a;b;c;d;e;f;g;h"
+        cantFilas = val
+        cantColumnas = val
+        tableWidgetEstructura.setRowCount(0);
+        tableWidgetEstructura.setColumnCount(0);
+        #setHorizontalHeaderLabels(QString("HEADER 1;HEADER 2;HEADER 3").split(";"));
+        while cantColumnas != 0:
+            columnPosition = tableWidgetEstructura.columnCount()
+            tableWidgetEstructura.insertColumn(columnPosition)
+            tableWidgetEstructura.setHorizontalHeaderLabels(posiblesValores.split(";"))
+            cantColumnas -= 1 
+            
+        while cantFilas != 0:
+            rowPosition = tableWidgetEstructura.rowCount()
+            tableWidgetEstructura.insertRow(rowPosition)
+            tableWidgetEstructura.setVerticalHeaderLabels(posiblesValores.split(";"))
+            cantFilas -= 1         
+               
 ## MAIN ##
 if __name__ == "__main__":
     app = QtGui.QApplication(sys.argv)
