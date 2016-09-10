@@ -822,8 +822,25 @@ class Programa3():
         
     def evaluarEstructura(o, t):
         orden = o
+        filas = o
+        columnas = o
         tabla = t
-        print("hol")
+        posiblesValores = ["a","b","c","d","e","f","g","h"]
+        ##----------------------------------------##
+        #Para evalauar el neutro
+        posibleNeutro = 0
+        neutro = 0
+        for i in range(0,filas):
+            posibleNeutro = 0
+            for j in range (0, columnas):
+                if tabla.item(i,j).text() == posiblesValores[j] and tabla.item(j,i).text() == posiblesValores[j]:
+                    posibleNeutro += 1
+                    if posibleNeutro == orden:
+                        neutro = posiblesValores[j]
+        print(neutro)
+        
+        ##----------------------------------------##
+        
 
          
              
