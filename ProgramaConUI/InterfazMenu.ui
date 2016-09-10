@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1255</width>
+    <width>1063</width>
     <height>731</height>
    </rect>
   </property>
@@ -61,7 +61,7 @@
      <widget class="QPushButton" name="buttonSeleccionarExcel">
       <property name="geometry">
        <rect>
-        <x>530</x>
+        <x>460</x>
         <y>490</y>
         <width>191</width>
         <height>121</height>
@@ -156,7 +156,7 @@
      <widget class="QLabel" name="label_9">
       <property name="geometry">
        <rect>
-        <x>920</x>
+        <x>800</x>
         <y>130</y>
         <width>221</width>
         <height>41</height>
@@ -176,7 +176,7 @@
      <widget class="QLabel" name="label_10">
       <property name="geometry">
        <rect>
-        <x>860</x>
+        <x>740</x>
         <y>190</y>
         <width>321</width>
         <height>31</height>
@@ -189,7 +189,7 @@
      <widget class="QLabel" name="label_11">
       <property name="geometry">
        <rect>
-        <x>750</x>
+        <x>630</x>
         <y>230</y>
         <width>561</width>
         <height>51</height>
@@ -202,7 +202,7 @@
      <widget class="QLabel" name="label_12">
       <property name="geometry">
        <rect>
-        <x>830</x>
+        <x>710</x>
         <y>290</y>
         <width>401</width>
         <height>31</height>
@@ -293,7 +293,7 @@
      <widget class="QTableWidget" name="tableWidgetRutas">
       <property name="geometry">
        <rect>
-        <x>240</x>
+        <x>70</x>
         <y>170</y>
         <width>631</width>
         <height>192</height>
@@ -369,7 +369,7 @@
        <rect>
         <x>60</x>
         <y>410</y>
-        <width>811</width>
+        <width>641</width>
         <height>163</height>
        </rect>
       </property>
@@ -721,8 +721,8 @@
      <widget class="QScrollArea" name="scrollArea">
       <property name="geometry">
        <rect>
-        <x>910</x>
-        <y>210</y>
+        <x>730</x>
+        <y>200</y>
         <width>301</width>
         <height>321</height>
        </rect>
