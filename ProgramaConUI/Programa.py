@@ -9,6 +9,7 @@ from openpyxl import *
 from itertools import *
 import numpy as np
 
+
 # Cargar nuestro archivo .ui
 form_class = uic.loadUiType("InterfazMenu.ui")[0]
 ruta = ""
@@ -832,6 +833,8 @@ class Programa3():
         columnas = o
         tabla = t
         posiblesValores = ["a","b","c","d","e","f","g","h"]
+        valoresUtilizados = posiblesValores[ 0 : (orden)]
+        print(valoresUtilizados)
         ##----------------------------------------##
         #Para evalauar el neutro
         posibleNeutro = 0
@@ -847,6 +850,9 @@ class Programa3():
             vNeutro = False
         else:
             #Para Asociatividad
+            print (list(permutations(valoresUtilizados, 3)))
+            print (len(list(permutations(valoresUtilizados, 3))))
+
             print(neutro)
         
         ##----------------------------------------##
