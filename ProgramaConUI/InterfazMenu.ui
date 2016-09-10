@@ -861,6 +861,9 @@
         <height>192</height>
        </rect>
       </property>
+      <property name="alternatingRowColors">
+       <bool>true</bool>
+      </property>
       <row>
        <property name="text">
         <string>a</string>

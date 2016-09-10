@@ -36,10 +36,17 @@ class Principal(QtGui.QMainWindow, form_class):
   self.connect(self.comboBoxCos, QtCore.SIGNAL("currentIndexChanged(const QString&)"), self.cambiarSpinboxCos)
   self.connect(self.comboBoxT, QtCore.SIGNAL("currentIndexChanged(const QString&)"), self.cambiarSpinboxT)
   self.connect(self.comboBoxP, QtCore.SIGNAL("currentIndexChanged(const QString&)"), self.cambiarSpinboxP)
-  
+
   #Para programa 3
   self.spinBoxOrden.valueChanged.connect(self.agregarCampos)#Para la tabla del programa 3
-  
+  self.tableWidgetDatosEstructura.cellChanged.connect(self.validarEntrada)
+ def validarEntrada(self, fila, columna ):#Para variable de Longitud
+     f = fila
+     c = columna
+     Programa3.validadorEntradas(self.spinBoxOrden.value(), self.tableWidgetDatosEstructura, f, c )
+     
+ def agregarCampos(self):
+     Programa3.generarTabla(self.spinBoxOrden.value(), self.tableWidgetDatosEstructura)
  ## Modifica la interfaz para las condiciones segun lo seleccionado 
  def cambiarSpinboxL(self, v):#Para variable de Longitud
      if v == "L > C" or v == "L >= C":
@@ -129,8 +136,7 @@ class Principal(QtGui.QMainWindow, form_class):
                                 self.doubleSpinBoxPC1.value(), self.doubleSpinBoxPC2.value()
                                 )
                                 
- def agregarCampos(self):
-     Programa3.generarTabla(self.spinBoxOrden.value(), self.tableWidgetDatosEstructura)
+
      
 class Programa1():
     def __init__(self):
@@ -774,8 +780,23 @@ class Programa3():
             rowPosition = tableWidgetEstructura.rowCount()
             tableWidgetEstructura.insertRow(rowPosition)
             tableWidgetEstructura.setVerticalHeaderLabels(posiblesValores.split(";"))
-            cantFilas -= 1         
-               
+            cantFilas -= 1   
+    def validadorEntradas(o, t, f, c ):
+        posiblesValores = ["a","b","c","d","e","f","g","h"]
+        orden = o
+        valoresUtilizados = posiblesValores[ 0 : (orden)]#Lista con las letras permitidas segun el orden
+        tabla = t
+        fila = f
+        columna = c
+        valorInsertado = tabla.item(fila,columna).text()#Valor de la tabla
+        if valorInsertado not in valoresUtilizados and valorInsertado != "":
+            print("Nopi")
+            print(valoresUtilizados)
+            print(valorInsertado)
+            tabla.setItem(fila, columna, QtGui.QTableWidgetItem(str("")))
+
+  
+             
 ## MAIN ##
 if __name__ == "__main__":
     app = QtGui.QApplication(sys.argv)
