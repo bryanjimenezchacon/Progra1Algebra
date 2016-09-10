@@ -839,7 +839,7 @@ class Programa3():
         #Para evalauar el neutro
         posibleNeutro = 0
         neutro = 0 #Neutro de la estructura
-        for i in range(0,filas):
+        for i in range(0,filas):#Encuentra el neutro de la matriz si existe
             posibleNeutro = 0
             for j in range (0, columnas):
                 if tabla.item(i,j).text() == posiblesValores[j] and tabla.item(j,i).text() == posiblesValores[j]:
@@ -850,8 +850,8 @@ class Programa3():
             vNeutro = False
         else:
             #Para Asociatividad
-            print (list(permutations(valoresUtilizados, 3)))
-            print (len(list(permutations(valoresUtilizados, 3))))
+            print (list(combinations_with_replacement(valoresUtilizados, 3)))
+            print (len(list(combinations_with_replacement(valoresUtilizados, 3))))
 
             print(neutro)
         
