@@ -40,6 +40,26 @@ class Principal(QtGui.QMainWindow, form_class):
   #Para programa 3
   self.spinBoxOrden.valueChanged.connect(self.agregarCampos)#Para la tabla del programa 3
   self.tableWidgetDatosEstructura.cellChanged.connect(self.validarEntrada)
+  self.pushButtonEvaluarEstructura.clicked.connect(self.evaluar)
+  
+ def evaluar(self):#Para calcular si es grupo o no
+     correcto = True
+     orden = self.spinBoxOrden.value()
+     tabla = self.tableWidgetDatosEstructura
+     for i in range (0, orden):
+         for j in range (0,orden):
+             Programa3.validadorEntradas(self.spinBoxOrden.value(), self.tableWidgetDatosEstructura, i,j )
+     
+     for i in range (0, orden):
+         for j in range (0,orden):
+             print(tabla.item(i,j).text())
+             if tabla.item(i,j).text() == "":
+                 correcto = False
+                 print(correcto)
+     if correcto:
+         Programa3.evaluarEstructura(self.spinBoxOrden.value(), self.tableWidgetDatosEstructura)
+     else:
+         print("inc")
  def validarEntrada(self, fila, columna ):#Para variable de Longitud
      f = fila
      c = columna
@@ -780,7 +800,11 @@ class Programa3():
             rowPosition = tableWidgetEstructura.rowCount()
             tableWidgetEstructura.insertRow(rowPosition)
             tableWidgetEstructura.setVerticalHeaderLabels(posiblesValores.split(";"))
-            cantFilas -= 1   
+            cantFilas -= 1
+        for i in range(0, val):
+            for j in range(0, val):
+                tableWidgetEstructura.setItem(i,j, QtGui.QTableWidgetItem(str("-")))
+        
     def validadorEntradas(o, t, f, c ):
         posiblesValores = ["a","b","c","d","e","f","g","h"]
         orden = o
@@ -790,12 +814,16 @@ class Programa3():
         columna = c
         valorInsertado = tabla.item(fila,columna).text()#Valor de la tabla
         if valorInsertado not in valoresUtilizados and valorInsertado != "":
-            print("Nopi")
-            print(valoresUtilizados)
-            print(valorInsertado)
+            print("noV")
             tabla.setItem(fila, columna, QtGui.QTableWidgetItem(str("")))
 
-  
+        
+    def evaluarEstructura(o, t):
+        orden = o
+        tabla = t
+        print("hol")
+
+         
              
 ## MAIN ##
 if __name__ == "__main__":

@@ -299,6 +299,9 @@
         <height>192</height>
        </rect>
       </property>
+      <property name="alternatingRowColors">
+       <bool>true</bool>
+      </property>
       <column>
        <property name="text">
         <string>Ruta</string>
@@ -874,6 +877,19 @@
         <string>a</string>
        </property>
       </column>
+     </widget>
+     <widget class="QPushButton" name="pushButtonEvaluarEstructura">
+      <property name="geometry">
+       <rect>
+        <x>510</x>
+        <y>380</y>
+        <width>131</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Evalúar Estructura</string>
+      </property>
      </widget>
     </widget>
    </widget>
