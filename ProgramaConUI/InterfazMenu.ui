@@ -877,6 +877,11 @@
         <string>a</string>
        </property>
       </column>
+      <item row="0" column="0">
+       <property name="text">
+        <string/>
+       </property>
+      </item>
      </widget>
      <widget class="QPushButton" name="pushButtonEvaluarEstructura">
       <property name="geometry">
