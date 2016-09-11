@@ -56,7 +56,7 @@ class Principal(QtGui.QMainWindow, form_class):
              if tabla.item(i,j).text() == "":
                  correcto = False
      if correcto:
-         Programa3.evaluarEstructura(self.spinBoxOrden.value(), self.tableWidgetDatosEstructura)
+         Programa3.evaluarEstructura(self.spinBoxOrden.value(), self.tableWidgetDatosEstructura, self.labelResultadosPrograma3)
 
  def validarEntrada(self, fila, columna ):#Para variable de Longitud
      f = fila
@@ -821,7 +821,7 @@ class Programa3():
             tabla.setItem(fila, columna, item)
 
         
-    def evaluarEstructura(o, t):
+    def evaluarEstructura(o, t, labelResultadosPrograma3):
         
         #Para verificar las propiedades de grupo
         vNeutro = True
@@ -903,6 +903,7 @@ class Programa3():
                     #Generar y filtra todos los posibles subgrupos que tengan apara evaluar
                     subgruposConNeutro = []
                     posiblesSubgrupos = []
+                    subgrupos = []
                     for i in range(0, len(valoresUtilizados)):
                         
                         combinacionesFiltradas = []
@@ -922,10 +923,39 @@ class Programa3():
                             subgruposConNeutro.append(posiblesSubgrupos[i])
                     print(subgruposConNeutro)
                     #Evalua los subgruposConNeutro
+                    for i in range(len(subgruposConNeutro)):#Analiza los subgrupos con neutro
+                        elementosPosiblesTemp = []
+                        for m in range(len(subgruposConNeutro[i])):#Extrae los elementos que estan en el subgrupo
+                            elementosPosiblesTemp.append(subgruposConNeutro[i][m])
+                        print("Elementos posibles del subgrupo")
+                        print(elementosPosiblesTemp)
+                        #Combinaciones posibles en el subgrupo
+                        subgrupoTemp = list(combinations_with_replacement(subgruposConNeutro[i], 2))
+                        print(subgrupoTemp)
+                        subgrupoTempCumple = True
+                        for k in range(len(subgrupoTemp)):#evaluar las operaciones del subgrupo (Elemento 1 con inverso de elemento 2)
+                            resultado = tabla.item(valoresUtilizados.index(subgrupoTemp[k][0]),valoresUtilizados.index(dicInversos[subgrupoTemp[k][1]])).text()
+                            print("Resultado")
+                            print(resultado)
+                            if resultado not in elementosPosiblesTemp:
+                                subgrupoTempCumple = False
+                        if subgrupoTempCumple:
+                            
+                            subgrupos.append(subgruposConNeutro[i])
+                    print("Subgrupos/n")        
+                    print(subgrupos)
+        if vNeutro == False:
+            labelResultadosPrograma3.setText("No es grupo, No tiene neutro")
+        elif vAsociatividad == False:
+            labelResultadosPrograma3.setText("No es grupo, No tiene asociatividad")
+        elif vInversos == False:
+            labelResultadosPrograma3.setText("No es grupo, No todos tienen inverso")
+        else:
+            labelResultadosPrograma3.setText("Es grupo, sus subgrupos son:" + str(subgrupos))
+            
         
-
-         
-             
+        
+        
 ## MAIN ##
 if __name__ == "__main__":
     app = QtGui.QApplication(sys.argv)
