@@ -899,6 +899,8 @@ class Programa3():
                     print("Es grupo")
                     ##----------------------------------------##
                     #Para encontrar subgrupos
+                    
+                    #Generar y filtra todos los posibles subgrupos que tengan apara evaluar
                     subgruposConNeutro = []
                     posiblesSubgrupos = []
                     for i in range(0, len(valoresUtilizados)):
@@ -919,7 +921,7 @@ class Programa3():
                         if posiblesSubgrupos[i][0] == neutro:
                             subgruposConNeutro.append(posiblesSubgrupos[i])
                     print(subgruposConNeutro)
-                    
+                    #Evalua los subgruposConNeutro
         
 
          
