@@ -8,7 +8,7 @@ from PyQt4 import QtCore, QtGui, uic
 from openpyxl import *
 from itertools import *
 import numpy as np
-
+import copy
 
 # Cargar nuestro archivo .ui
 form_class = uic.loadUiType("InterfazMenu.ui")[0]
@@ -892,7 +892,28 @@ class Programa3():
                     print("No hay inversos")
                 else:
                     print("Es grupo")
+                    ##----------------------------------------##
+                    #Para encontrar subgrupos
+                    subgruposConNeutro = []
+                    posiblesSubgrupos = []
+                    for i in range(0, len(valoresUtilizados)):
+                        
+                        combinacionesFiltradas = []
+                        combinacionesTempo = list(combinations(valoresUtilizados, i+1))
+                        combinacionesFiltradas = copy.deepcopy(combinacionesTempo)
 
+                        print("Filtrado")        
+                        print(combinacionesFiltradas)
+                        for m in range(0, len(combinacionesFiltradas)):
+                            posiblesSubgrupos.append(combinacionesFiltradas[m])
+                        
+                    print("Subgruposposible")
+                    print(posiblesSubgrupos)
+                    print(posiblesSubgrupos[4][0])
+                    for i in range(len(posiblesSubgrupos)):
+                        if posiblesSubgrupos[i][0] == neutro:
+                            subgruposConNeutro.append(posiblesSubgrupos[i])
+                    print(subgruposConNeutro)
                     
         
 
