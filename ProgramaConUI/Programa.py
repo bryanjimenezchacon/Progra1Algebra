@@ -834,9 +834,10 @@ class Programa3():
         tabla = t
         posiblesValores = ["a","b","c","d","e","f","g","h"]
         valoresUtilizados = posiblesValores[ 0 : (orden)]
+        cantValoresUtilizados = len(valoresUtilizados)
         print(valoresUtilizados)
         ##----------------------------------------##
-        #Para evalauar el neutro
+        #Para evaluar el neutro
         posibleNeutro = 0
         neutro = 0 #Neutro de la estructura
         for i in range(0,filas):#Encuentra el neutro de la matriz si existe
@@ -852,7 +853,8 @@ class Programa3():
         else:
             print("Neutro")
             print(neutro)
-            #Para Asociatividad
+            ##----------------------------------------##
+            #Para evaluar Asociatividad
             combinaciones = list(combinations_with_replacement(valoresUtilizados, 3))
             for i in range(0,len(combinaciones)):
                 combTemp = combinaciones[i]
@@ -873,13 +875,25 @@ class Programa3():
                 print("No es Asociativo")
             else:
                 print("Si es Asociativo")
-                    
-            #print (list(combinations_with_replacement(valoresUtilizados, 3)))
-            # (len(list(combinations_with_replacement(valoresUtilizados, 3))))
+                ##----------------------------------------##
+                #Para evaluar Inversos
+                revision1 = 0
+                revision2 = 0
+                totalInversos = 0
+                for i in range(0,len(valoresUtilizados)):
+                    for j in range(0,len(valoresUtilizados)):
+                        revision1 = tabla.item(i,j).text()
+                        if revision1 == neutro:
+                            revision2 = tabla.item(j,i).text()
+                            if revision1 == revision2:
+                                totalInversos +=1
+                if totalInversos != cantValoresUtilizados:
+                    vInversos = False
+                    print("No hay inversos")
+                else:
+                    print("Es grupo")
 
-            
-        
-        ##----------------------------------------##
+                    
         
 
          
