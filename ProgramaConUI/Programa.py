@@ -880,13 +880,18 @@ class Programa3():
                 revision1 = 0
                 revision2 = 0
                 totalInversos = 0
+                dicInversos = {}
                 for i in range(0,len(valoresUtilizados)):
                     for j in range(0,len(valoresUtilizados)):
                         revision1 = tabla.item(i,j).text()
                         if revision1 == neutro:
                             revision2 = tabla.item(j,i).text()
                             if revision1 == revision2:
+                                dicInversos[valoresUtilizados[i]] = valoresUtilizados[j]
+                                #dicInversos[valoresUtilizados[j]] = valoresUtilizados[i]
                                 totalInversos +=1
+                print("Diccionarios Inversos")
+                print (dicInversos)
                 if totalInversos != cantValoresUtilizados:
                     vInversos = False
                     print("No hay inversos")
