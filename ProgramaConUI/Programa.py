@@ -848,27 +848,36 @@ class Programa3():
                 neutro = posiblesValores[i]
         if neutro == 0:
             vNeutro = False
+            print("No tiene neutro")
         else:
+            print("Neutro")
+            print(neutro)
             #Para Asociatividad
             combinaciones = list(combinations_with_replacement(valoresUtilizados, 3))
             for i in range(0,len(combinaciones)):
                 combTemp = combinaciones[i]
                 valor1 = tabla.item(valoresUtilizados.index(combTemp[0]),valoresUtilizados.index(combTemp[1])).text()
                 valor2 = tabla.item(valoresUtilizados.index(valor1),valoresUtilizados.index(combTemp[2])).text()
-                print(combinaciones[i][0])
-                print(combinaciones[i][1])
-                print("Valor 2")
+                print("Combinacion")
+                print(combinaciones[i])
+                print("Lado 1")
                 print(valor2)
                 valor3 = tabla.item(valoresUtilizados.index(combTemp[1]),valoresUtilizados.index(combTemp[2])).text()
                 valor4 = tabla.item(valoresUtilizados.index(combTemp[0]),valoresUtilizados.index(valor3)).text()
 
-                print("Valor 3")
+                print("Lado 2")
                 print(valor4)
-
+                if valor2 != valor4:
+                    vAsociatividad = False
+            if vAsociatividad == False:
+                print("No es Asociativo")
+            else:
+                print("Si es Asociativo")
+                    
             #print (list(combinations_with_replacement(valoresUtilizados, 3)))
             # (len(list(combinations_with_replacement(valoresUtilizados, 3))))
 
-            print(neutro)
+            
         
         ##----------------------------------------##
         
