@@ -774,8 +774,18 @@ class Programa2():
         else:
             filasCorrectas = ""
             for i in range(0, len(respuestaCorrecta)):
-                filasCorrectas += (str(respuestaCorrecta[i][0]) + str(respuestaCorrecta[i][1]))
-            labelResultados.setText(filasCorrectas)
+                listaSolTemp = ""
+                for h in range(0, len(respuestaCorrecta[i][1])):
+                    if respuestaCorrecta[i][1][h] == 1:
+                        listaSolTemp += ("R" + str(h) + " ")
+                        
+                filasCorrectas += (str(respuestaCorrecta[i][0]) +" Sol: " + str(listaSolTemp) + "\n")
+                #filasCorrectas += (str(respuestaCorrecta[i][0]) +" Sol: " + str(respuestaCorrecta[i][1]) + "\n")        
+                        
+            
+            print("Respuesta")
+            print(filasCorrectas)
+            labelResultados.setText(str(filasCorrectas))
             
 class Programa3():
     def __init__(self):
@@ -886,6 +896,9 @@ class Programa3():
                         revision1 = tabla.item(i,j).text()
                         if revision1 == neutro:
                             revision2 = tabla.item(j,i).text()
+                            print ("Revision")
+                            print (revision1)
+                            print (revision2)
                             if revision1 == revision2:
                                 dicInversos[valoresUtilizados[i]] = valoresUtilizados[j]
                                 #dicInversos[valoresUtilizados[j]] = valoresUtilizados[i]
