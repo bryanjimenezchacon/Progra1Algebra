@@ -917,10 +917,10 @@ class Programa3():
                         
                     print("Subgruposposible")
                     print(posiblesSubgrupos)
-                    print(posiblesSubgrupos[4][0])
                     for i in range(len(posiblesSubgrupos)):
-                        if posiblesSubgrupos[i][0] == neutro:
-                            subgruposConNeutro.append(posiblesSubgrupos[i])
+                        for j in range(len(posiblesSubgrupos[i])):
+                            if posiblesSubgrupos[i][j] == neutro:
+                                subgruposConNeutro.append(posiblesSubgrupos[i])
                     print(subgruposConNeutro)
                     #Evalua los subgruposConNeutro
                     for i in range(len(subgruposConNeutro)):#Analiza los subgrupos con neutro
@@ -951,7 +951,17 @@ class Programa3():
         elif vInversos == False:
             labelResultadosPrograma3.setText("No es grupo, No todos tienen inverso")
         else:
-            labelResultadosPrograma3.setText("Es grupo, sus subgrupos son:" + str(subgrupos))
+            #Formato mas bonito para subgrupos
+            strSubgrupos = ""
+            strSubgrupoTemp = ""
+            for i in range (0,len(subgrupos)):
+                strSubgrupoTemp = "{"
+                for j in range(0,len(subgrupos[i])):
+                    strSubgrupoTemp += " " + subgrupos[i][j] + " "
+                strSubgrupoTemp += "}"
+                strSubgrupos += strSubgrupoTemp
+                    
+            labelResultadosPrograma3.setText("Es grupo, sus subgrupos son: " + strSubgrupos)
             
         
         
