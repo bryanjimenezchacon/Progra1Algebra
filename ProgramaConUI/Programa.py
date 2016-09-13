@@ -784,6 +784,7 @@ class Programa2():
                         
             
             print("Respuesta")
+            print(len(filasCorrectas))
             print(filasCorrectas)
             labelResultados.setText(str(filasCorrectas))
             
