@@ -848,9 +848,31 @@ class Programa3():
         cantValoresUtilizados = len(valoresUtilizados)
         print(valoresUtilizados)
         ##----------------------------------------##
-        #Para evaluar el neutro
+        
         posibleNeutro = 0
         neutro = 0 #Neutro de la estructura
+            ##----------------------------------------##
+        #Para evaluar Asociatividad
+        combinaciones = list(combinations_with_replacement(valoresUtilizados, 3))
+        for i in range(0,len(combinaciones)):
+            combTemp = combinaciones[i]
+            valor1 = tabla.item(valoresUtilizados.index(combTemp[0]),valoresUtilizados.index(combTemp[1])).text()
+            valor2 = tabla.item(valoresUtilizados.index(valor1),valoresUtilizados.index(combTemp[2])).text()
+            print("Combinacion")
+            print(combinaciones[i])
+            print("Lado 1")
+            print(valor2)
+            valor3 = tabla.item(valoresUtilizados.index(combTemp[1]),valoresUtilizados.index(combTemp[2])).text()
+            valor4 = tabla.item(valoresUtilizados.index(combTemp[0]),valoresUtilizados.index(valor3)).text()
+
+            print("Lado 2")
+            print(valor4)
+            if valor2 != valor4:
+                vAsociatividad = False
+        if vAsociatividad == False:
+            print("No es Asociativo")
+        ##----------------------------------------##   
+            #Para evaluar el neutro
         for i in range(0,filas):#Encuentra el neutro de la matriz si existe
             posibleNeutro = 0
             for j in range (0, columnas):
@@ -860,106 +882,87 @@ class Programa3():
                 neutro = posiblesValores[i]
         if neutro == 0:
             vNeutro = False
+            vInversos = False
             print("No tiene neutro")
         else:
             print("Neutro")
             print(neutro)
+
             ##----------------------------------------##
-            #Para evaluar Asociatividad
-            combinaciones = list(combinations_with_replacement(valoresUtilizados, 3))
-            for i in range(0,len(combinaciones)):
-                combTemp = combinaciones[i]
-                valor1 = tabla.item(valoresUtilizados.index(combTemp[0]),valoresUtilizados.index(combTemp[1])).text()
-                valor2 = tabla.item(valoresUtilizados.index(valor1),valoresUtilizados.index(combTemp[2])).text()
-                print("Combinacion")
-                print(combinaciones[i])
-                print("Lado 1")
-                print(valor2)
-                valor3 = tabla.item(valoresUtilizados.index(combTemp[1]),valoresUtilizados.index(combTemp[2])).text()
-                valor4 = tabla.item(valoresUtilizados.index(combTemp[0]),valoresUtilizados.index(valor3)).text()
+            #Para evaluar Inversos
+            revision1 = 0
+            revision2 = 0
+            totalInversos = 0
+            dicInversos = {}
+            for i in range(0,len(valoresUtilizados)):
+                for j in range(0,len(valoresUtilizados)):
+                    revision1 = tabla.item(i,j).text()
+                    if revision1 == neutro:
+                        revision2 = tabla.item(j,i).text()
+                        print ("Revision")
+                        print (revision1)
+                        print (revision2)
+                        if revision1 == revision2:
+                            dicInversos[valoresUtilizados[i]] = valoresUtilizados[j]
+                            #dicInversos[valoresUtilizados[j]] = valoresUtilizados[i]
+                            totalInversos +=1
+            print("Diccionarios Inversos")
+            print (dicInversos)
+            if totalInversos != cantValoresUtilizados:
+                vInversos = False
+                print("No hay inversos")
+        if vNeutro == True and vAsociatividad == True and vInversos == True:
+            print("Es grupo")
+            ##----------------------------------------##
+            #Para encontrar subgrupos
+            
+            #Generar y filtra todos los posibles subgrupos que tengan apara evaluar
+            subgruposConNeutro = []
+            posiblesSubgrupos = []
+            subgrupos = []
+            for i in range(0, len(valoresUtilizados)):
+                
+                combinacionesFiltradas = []
+                combinacionesTempo = list(combinations(valoresUtilizados, i+1))
+                combinacionesFiltradas = copy.deepcopy(combinacionesTempo)
 
-                print("Lado 2")
-                print(valor4)
-                if valor2 != valor4:
-                    vAsociatividad = False
-            if vAsociatividad == False:
-                print("No es Asociativo")
-            else:
-                print("Si es Asociativo")
-                ##----------------------------------------##
-                #Para evaluar Inversos
-                revision1 = 0
-                revision2 = 0
-                totalInversos = 0
-                dicInversos = {}
-                for i in range(0,len(valoresUtilizados)):
-                    for j in range(0,len(valoresUtilizados)):
-                        revision1 = tabla.item(i,j).text()
-                        if revision1 == neutro:
-                            revision2 = tabla.item(j,i).text()
-                            print ("Revision")
-                            print (revision1)
-                            print (revision2)
-                            if revision1 == revision2:
-                                dicInversos[valoresUtilizados[i]] = valoresUtilizados[j]
-                                #dicInversos[valoresUtilizados[j]] = valoresUtilizados[i]
-                                totalInversos +=1
-                print("Diccionarios Inversos")
-                print (dicInversos)
-                if totalInversos != cantValoresUtilizados:
-                    vInversos = False
-                    print("No hay inversos")
-                else:
-                    print("Es grupo")
-                    ##----------------------------------------##
-                    #Para encontrar subgrupos
+                print("Filtrado")        
+                print(combinacionesFiltradas)
+                for m in range(0, len(combinacionesFiltradas)):
+                    posiblesSubgrupos.append(combinacionesFiltradas[m])
+                
+            print("Subgruposposible")
+            print(posiblesSubgrupos)
+            for i in range(len(posiblesSubgrupos)):
+                for j in range(len(posiblesSubgrupos[i])):
+                    if posiblesSubgrupos[i][j] == neutro:
+                        subgruposConNeutro.append(posiblesSubgrupos[i])
+            print(subgruposConNeutro)
+            #Evalua los subgruposConNeutro
+            for i in range(len(subgruposConNeutro)):#Analiza los subgrupos con neutro
+                elementosPosiblesTemp = []
+                for m in range(len(subgruposConNeutro[i])):#Extrae los elementos que estan en el subgrupo
+                    elementosPosiblesTemp.append(subgruposConNeutro[i][m])
+                print("Elementos posibles del subgrupo")
+                print(elementosPosiblesTemp)
+                #Combinaciones posibles en el subgrupo
+                subgrupoTemp = list(combinations_with_replacement(subgruposConNeutro[i], 2))
+                print(subgrupoTemp)
+                subgrupoTempCumple = True
+                for k in range(len(subgrupoTemp)):#evaluar las operaciones del subgrupo (Elemento 1 con inverso de elemento 2)
+                    resultado = tabla.item(valoresUtilizados.index(subgrupoTemp[k][0]),valoresUtilizados.index(dicInversos[subgrupoTemp[k][1]])).text()
+                    print("Resultado")
+                    print(resultado)
+                    if resultado not in elementosPosiblesTemp:
+                        subgrupoTempCumple = False
+                if subgrupoTempCumple:
                     
-                    #Generar y filtra todos los posibles subgrupos que tengan apara evaluar
-                    subgruposConNeutro = []
-                    posiblesSubgrupos = []
-                    subgrupos = []
-                    for i in range(0, len(valoresUtilizados)):
-                        
-                        combinacionesFiltradas = []
-                        combinacionesTempo = list(combinations(valoresUtilizados, i+1))
-                        combinacionesFiltradas = copy.deepcopy(combinacionesTempo)
-
-                        print("Filtrado")        
-                        print(combinacionesFiltradas)
-                        for m in range(0, len(combinacionesFiltradas)):
-                            posiblesSubgrupos.append(combinacionesFiltradas[m])
-                        
-                    print("Subgruposposible")
-                    print(posiblesSubgrupos)
-                    for i in range(len(posiblesSubgrupos)):
-                        for j in range(len(posiblesSubgrupos[i])):
-                            if posiblesSubgrupos[i][j] == neutro:
-                                subgruposConNeutro.append(posiblesSubgrupos[i])
-                    print(subgruposConNeutro)
-                    #Evalua los subgruposConNeutro
-                    for i in range(len(subgruposConNeutro)):#Analiza los subgrupos con neutro
-                        elementosPosiblesTemp = []
-                        for m in range(len(subgruposConNeutro[i])):#Extrae los elementos que estan en el subgrupo
-                            elementosPosiblesTemp.append(subgruposConNeutro[i][m])
-                        print("Elementos posibles del subgrupo")
-                        print(elementosPosiblesTemp)
-                        #Combinaciones posibles en el subgrupo
-                        subgrupoTemp = list(combinations_with_replacement(subgruposConNeutro[i], 2))
-                        print(subgrupoTemp)
-                        subgrupoTempCumple = True
-                        for k in range(len(subgrupoTemp)):#evaluar las operaciones del subgrupo (Elemento 1 con inverso de elemento 2)
-                            resultado = tabla.item(valoresUtilizados.index(subgrupoTemp[k][0]),valoresUtilizados.index(dicInversos[subgrupoTemp[k][1]])).text()
-                            print("Resultado")
-                            print(resultado)
-                            if resultado not in elementosPosiblesTemp:
-                                subgrupoTempCumple = False
-                        if subgrupoTempCumple:
-                            
-                            subgrupos.append(subgruposConNeutro[i])
-                    print("Subgrupos/n")        
-                    print(subgrupos)
+                    subgrupos.append(subgruposConNeutro[i])
+            print("Subgrupos/n")        
+            print(subgrupos)
+            
         if vNeutro == False:
-            labelResultadosPrograma3.setText("No es grupo, No tiene neutro")
+            labelResultadosPrograma3.setText("No es grupo, No tiene neutro ni inversos")
         elif vAsociatividad == False:
             labelResultadosPrograma3.setText("No es grupo, No tiene asociatividad")
         elif vInversos == False:
