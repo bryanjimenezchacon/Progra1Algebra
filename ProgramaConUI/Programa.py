@@ -960,13 +960,20 @@ class Programa3():
                     subgrupos.append(subgruposConNeutro[i])
             print("Subgrupos/n")        
             print(subgrupos)
-            
-        if vNeutro == False:
-            labelResultadosPrograma3.setText("No es grupo, No tiene neutro ni inversos")
-        elif vAsociatividad == False:
-            labelResultadosPrograma3.setText("No es grupo, No tiene asociatividad")
-        elif vInversos == False:
-            labelResultadosPrograma3.setText("No es grupo, No todos tienen inverso")
+        
+        textoNeutro = ""
+        textoAsociatividad = ""
+        textoInversos = ""
+        
+        if vNeutro == False or vAsociatividad == False or vInversos == False:
+            if vNeutro == True and vInversos == False:
+                textoInversos = " -No tiene inversos"
+            if vNeutro == False:
+                textoNeutro = " -No tiene neutro, ni inversos"
+            if vAsociatividad == False:
+                textoAsociatividad = " -No tiene asociatividad"
+            labelResultadosPrograma3.setText("No es grupo:" + textoInversos + textoNeutro + textoAsociatividad)                
+                
         else:
             #Formato mas bonito para subgrupos
             strSubgrupos = ""
