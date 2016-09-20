@@ -779,7 +779,7 @@ class Programa2():
                 listaSolTemp = ""
                 for h in range(0, len(respuestaCorrecta[i][1])):
                     if respuestaCorrecta[i][1][h] == 1:
-                        listaSolTemp += ("R" + str(h) + " ")
+                        listaSolTemp += ("R" + str(h + 1) + " ")
                         
                 filasCorrectas += (str(respuestaCorrecta[i][0]) +" Sol: " + str(listaSolTemp) + "\n")
                 #filasCorrectas += (str(respuestaCorrecta[i][0]) +" Sol: " + str(respuestaCorrecta[i][1]) + "\n")        
