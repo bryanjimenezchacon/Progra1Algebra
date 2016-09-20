@@ -388,65 +388,6 @@
        <number>8</number>
       </property>
      </widget>
-     <widget class="QTableWidget" name="tableWidgetRutas">
-      <property name="geometry">
-       <rect>
-        <x>40</x>
-        <y>170</y>
-        <width>641</width>
-        <height>192</height>
-       </rect>
-      </property>
-      <property name="alternatingRowColors">
-       <bool>true</bool>
-      </property>
-      <attribute name="horizontalHeaderVisible">
-       <bool>false</bool>
-      </attribute>
-      <attribute name="horizontalHeaderCascadingSectionResizes">
-       <bool>false</bool>
-      </attribute>
-      <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
-       <bool>false</bool>
-      </attribute>
-      <attribute name="horizontalHeaderStretchLastSection">
-       <bool>false</bool>
-      </attribute>
-      <column>
-       <property name="text">
-        <string>Ruta</string>
-       </property>
-       <property name="font">
-        <font>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Longitud (Kms)</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Costo (Millones de dólares)</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Tiempo de Construccion (Meses)</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Población Beneficiada (Miles de personas)</string>
-       </property>
-       <property name="textAlignment">
-        <set>AlignLeading|AlignVCenter</set>
-       </property>
-      </column>
-     </widget>
      <widget class="QLabel" name="nombreCantidadCarreteras_2">
       <property name="geometry">
        <rect>
@@ -899,6 +840,47 @@
         </property>
        </widget>
       </widget>
+     </widget>
+     <widget class="QTableWidget" name="tableWidgetRutas">
+      <property name="geometry">
+       <rect>
+        <x>130</x>
+        <y>170</y>
+        <width>501</width>
+        <height>192</height>
+       </rect>
+      </property>
+      <property name="alternatingRowColors">
+       <bool>true</bool>
+      </property>
+      <column>
+       <property name="text">
+        <string>Ruta</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Longitud (Kms)</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Costo (Millones de dólares)</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Tiempo de Construccion (Meses)</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Población Beneficiada (Miles de personas)</string>
+       </property>
+       <property name="textAlignment">
+        <set>AlignLeading|AlignVCenter</set>
+       </property>
+      </column>
      </widget>
     </widget>
     <widget class="QWidget" name="TapP3">

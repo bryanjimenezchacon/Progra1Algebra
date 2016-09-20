@@ -1,1 +1,1 @@
-pyuic4 -o InterfazMenu.py InterfazMenu.ui
+python -m PyQt4.uic.pyuic -o InterfazMenu.py InterfazMenu.ui
